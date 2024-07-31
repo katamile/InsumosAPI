@@ -1,0 +1,6 @@
+@InsumosAPI_HostAddress = http://localhost:5166
+
+GET {{InsumosAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
