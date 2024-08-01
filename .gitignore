@@ -2,3 +2,7 @@
 *.json
 *.vsidx
 *.wsuo
+*.dll
+*.props
+*.exe
+*.pdb
