@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "xBFTZmhz3lc=",
+  "dgSpecHash": "2zkVIaIRNYs=",
   "success": true,
   "projectFilePath": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\InsumosAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MiSaO\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\MiSaO\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\MiSaO\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\MiSaO\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\MiSaO\\.nuget\\packages\\jwt\\10.1.1\\jwt.10.1.1.nupkg.sha512",
     "C:\\Users\\MiSaO\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.7\\microsoft.aspnetcore.authentication.jwtbearer.8.0.7.nupkg.sha512",
