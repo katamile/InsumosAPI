@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/InsumosAPI/obj/Debug/net8.0/InsumosAPI.AssemblyInfo.cs
+/InsumosAPI/obj/Debug/net8.0/InsumosAPI.AssemblyInfoInputs.cache
