@@ -1,1 +1,4 @@
 ﻿/InsumosAPI/InsumosAPI.csproj
+*.json
+*.vsidx
+*.wsuo
