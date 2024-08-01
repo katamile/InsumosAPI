@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|d:\\misao\\documents\\universidad\\9sem\\verificacion y validacion de software\\proyecto\\insumosapi\\insumosapi\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|solutionrelative:insumosapi\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|d:\\misao\\documents\\universidad\\9sem\\verificacion y validacion de software\\proyecto\\insumosapi\\insumosapi\\utils\\globales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|solutionrelative:insumosapi\\utils\\globales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|d:\\misao\\documents\\universidad\\9sem\\verificacion y validacion de software\\proyecto\\insumosapi\\insumosapi\\middleware\\jwtauthorizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|solutionrelative:insumosapi\\middleware\\jwtauthorizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|d:\\misao\\documents\\universidad\\9sem\\verificacion y validacion de software\\proyecto\\insumosapi\\insumosapi\\middleware\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|solutionrelative:insumosapi\\middleware\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|d:\\misao\\documents\\universidad\\9sem\\verificacion y validacion de software\\proyecto\\insumosapi\\insumosapi\\utils\\stringhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|solutionrelative:insumosapi\\utils\\stringhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|d:\\misao\\documents\\universidad\\9sem\\verificacion y validacion de software\\proyecto\\insumosapi\\insumosapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|solutionrelative:insumosapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|d:\\misao\\documents\\universidad\\9sem\\verificacion y validacion de software\\proyecto\\insumosapi\\insumosapi\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|solutionrelative:insumosapi\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|d:\\misao\\documents\\universidad\\9sem\\verificacion y validacion de software\\proyecto\\insumosapi\\insumosapi\\middleware\\exceptions\\badrequest\\existingobjectexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08C6A6F9-57E7-40CB-8CDC-79308D4D090B}|InsumosAPI\\InsumosAPI.csproj|solutionrelative:insumosapi\\middleware\\exceptions\\badrequest\\existingobjectexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Entities\\Usuario.cs",
+              "RelativeDocumentMoniker": "InsumosAPI\\Entities\\Usuario.cs",
+              "ToolTip": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Entities\\Usuario.cs",
+              "RelativeToolTip": "InsumosAPI\\Entities\\Usuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T02:51:21.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "JwtAuthorizationFilter.cs",
+              "DocumentMoniker": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Middleware\\JwtAuthorizationFilter.cs",
+              "RelativeDocumentMoniker": "InsumosAPI\\Middleware\\JwtAuthorizationFilter.cs",
+              "ToolTip": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Middleware\\JwtAuthorizationFilter.cs",
+              "RelativeToolTip": "InsumosAPI\\Middleware\\JwtAuthorizationFilter.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAowDUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T02:42:14.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ExceptionMiddleware.cs",
+              "DocumentMoniker": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "InsumosAPI\\Middleware\\ExceptionMiddleware.cs",
+              "ToolTip": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeToolTip": "InsumosAPI\\Middleware\\ExceptionMiddleware.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T02:41:36.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ExistingObjectException.cs",
+              "DocumentMoniker": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Middleware\\Exceptions\\BadRequest\\ExistingObjectException.cs",
+              "RelativeDocumentMoniker": "InsumosAPI\\Middleware\\Exceptions\\BadRequest\\ExistingObjectException.cs",
+              "ToolTip": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Middleware\\Exceptions\\BadRequest\\ExistingObjectException.cs",
+              "RelativeToolTip": "InsumosAPI\\Middleware\\Exceptions\\BadRequest\\ExistingObjectException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T02:41:26.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Middleware\\Startup.cs",
+              "RelativeDocumentMoniker": "InsumosAPI\\Middleware\\Startup.cs",
+              "ToolTip": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Middleware\\Startup.cs",
+              "RelativeToolTip": "InsumosAPI\\Middleware\\Startup.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T02:40:01.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StringHandler.cs",
+              "DocumentMoniker": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Utils\\StringHandler.cs",
+              "RelativeDocumentMoniker": "InsumosAPI\\Utils\\StringHandler.cs",
+              "ToolTip": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Utils\\StringHandler.cs",
+              "RelativeToolTip": "InsumosAPI\\Utils\\StringHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T02:39:26.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Globales.cs",
+              "DocumentMoniker": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Utils\\Globales.cs",
+              "RelativeDocumentMoniker": "InsumosAPI\\Utils\\Globales.cs",
+              "ToolTip": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Utils\\Globales.cs",
+              "RelativeToolTip": "InsumosAPI\\Utils\\Globales.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T02:39:21.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Program.cs",
+              "RelativeDocumentMoniker": "InsumosAPI\\Program.cs",
+              "ToolTip": "D:\\MiSaO\\Documents\\UNIVERSIDAD\\9SEM\\VERIFICACION Y VALIDACION DE SOFTWARE\\Proyecto\\InsumosAPI\\InsumosAPI\\Program.cs",
+              "RelativeToolTip": "InsumosAPI\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAF4AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T02:33:31.232Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
