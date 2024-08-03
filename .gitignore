@@ -97,6 +97,8 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+.bin
+.suo
 
 # Chutzpah Test files
 _Chutzpah*
@@ -363,3 +365,9 @@ MigrationBackup/
 FodyWeavers.xsd
 /InsumosAPI/obj/Debug/net8.0/InsumosAPI.AssemblyInfo.cs
 /InsumosAPI/obj/Debug/net8.0/InsumosAPI.AssemblyInfoInputs.cache
+/.vs/ProjectEvaluation/insumosapi.strings.v8.bin
+/.vs/ProjectEvaluation/insumosapi.metadata.v8.bin
+/.vs/ProjectEvaluation/insumosapi.projects.v8.bin
+/.vs/InsumosAPI/DesignTimeBuild/.dtbcache.v2
+/.vs/InsumosAPI/v17/.suo
+/.vs/InsumosAPI/v17/DocumentLayout.json
