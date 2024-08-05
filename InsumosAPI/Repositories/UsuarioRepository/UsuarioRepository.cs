@@ -1,13 +1,10 @@
-﻿using BCrypt.Net;
-using InsumosAPI.DTOs;
+﻿using InsumosAPI.DTOs;
 using InsumosAPI.Entities;
 using InsumosAPI.Middleware.Exceptions.NotFound;
+using InsumosAPI.Middleware.Models;
 using InsumosAPI.Utils;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+using System.Net;
 
 namespace InsumosAPI.Repositories.UsuarioRepository
 {
@@ -24,85 +21,89 @@ namespace InsumosAPI.Repositories.UsuarioRepository
         {
             return await _contexto.Usuarios
                 .Where(u => u.Estado == Globales.ACTIVO)
-                .ToListAsync() ?? throw new NotFoundException("No se encuentra usuario");
+                .ToListAsync() ?? throw new NotFoundException("No se encuentran usuarios activos.");
+        }
+
+        public async Task<Usuario> GetById(long id)
+        {
+            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.IdUsuario == id && u.Estado == Globales.ACTIVO) 
+                                                                ?? throw new NotFoundException("No se encuentran usuario.");
         }
 
         public async Task<Usuario> ObtenerPorUsernameAsync(string username)
         {
-            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Username == username &&
-                                                                u.Estado == Globales.ACTIVO) 
-                                            ?? throw new NotFoundException("No se encuentra usuario");
+            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Username == username && u.Estado==Globales.ACTIVO)
+                                                                ?? throw new NotFoundException("No se encuentran usuario."); 
         }
 
         public async Task<Usuario> ObtenerUsuarioCambiar(string username)
         {
-            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Username == username) 
-                                           ?? throw new NotFoundException("No se encuentra usuario.");
+            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Username == username) ?? throw new NotFoundException("No se encuentran usuarios.");
         }
 
-        public async Task<string> ValidarCredencialesAsync(UsuarioLoginRequest request)
+        public async Task<Usuario> ObtenerPorIdentificacionAsync(string identificacion)
         {
-            var usuario = await ObtenerPorUsernameAsync(request.Username);
+            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Identificacion == identificacion) ?? throw new NotFoundException("No existen registros.");
+        }
 
-            if (usuario == null)
-                return null;
-
-            // Verificar la contraseña
-            if (BCrypt.Net.BCrypt.Verify(request.Password, usuario.Contraseña))
+        public async Task<MessageInfoDTO> CrearNuevoUsuario(UsuarioDTO usuario)
+        {
+            try
             {
-                // Si las credenciales son válidas, restablecer el contador de intentos fallidos
-                usuario.IntentosFallidos = 0;
-
-                // Generar el token JWT
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes("JsonWebApiTokenWithSwaggerAuthorizationAuthenticationAspNetCore");
-                var tokenDescriptor = new SecurityTokenDescriptor
+                var usuarioSave = new Usuario
                 {
-                    Subject = new ClaimsIdentity(new Claim[]
-                    {
-                new Claim(ClaimTypes.Name, usuario.Username),
-                        }),
-                        Expires = DateTime.UtcNow.AddHours(1),
-                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                    Identificacion = usuario.Identificacion,
+                    Nombres = usuario.Nombres,
+                    Apellidos = usuario.Apellidos,
+                    Username = usuario.Username,
+                    Contraseña = usuario.Contraseña,
+                    Correo = usuario.Correo,
+                    Rol = usuario.Rol
                 };
-                var token = tokenHandler.CreateToken(tokenDescriptor);
-                var tokenString = tokenHandler.WriteToken(token);
-
+                await _contexto.Usuarios.AddAsync(usuarioSave);
                 await _contexto.SaveChangesAsync();
-                return tokenString;
-            }
-            else
-            {
-                // Si las credenciales son inválidas, incrementar el contador de intentos fallidos
-                if (usuario.IntentosFallidos == null)
-                    usuario.IntentosFallidos = 1;
-                else
-                    usuario.IntentosFallidos++;
 
-                // Bloquear el usuario si se exceden los intentos fallidos
-                if (usuario.IntentosFallidos >= 3)
+                return new MessageInfoDTO
                 {
-                    usuario.Estado = Globales.BLOQUEADO;
-                }
-
-                await _contexto.SaveChangesAsync();
-                return null;
+                    Status = HttpStatusCode.Created,
+                    Message = "Usuario creado exitosamente.",
+                    Success = "true"
+                };
+            }
+            catch (Exception ex)
+            {
+                return new MessageInfoDTO
+                {
+                    Status = HttpStatusCode.InternalServerError,
+                    Message = ex.Message,
+                    Success = "false"
+                };
             }
         }
 
-        public async Task<bool> CambiarContraseñaAsync(CambiarContraseñaRequest request)
+        public async Task ModificarUsuarioAsync(Usuario usuario)
         {
-            var usuario = await ObtenerUsuarioCambiar(request.Username);
-
-            if (usuario == null)
-                return false;
-
-            // Actualizar la contraseña
-            usuario.Contraseña = BCrypt.Net.BCrypt.HashPassword(request.NuevaContraseña);
-            usuario.IntentosFallidos = 0;
-            usuario.Estado = Globales.ACTIVO;
+            _contexto.Usuarios.Update(usuario);
             await _contexto.SaveChangesAsync();
-            return true;
+        }
+
+        public async Task EliminarUsuarioAsync(long id)
+        {
+            var usuario = await GetById(id);
+            if (usuario == null)
+            {
+                throw new NotFoundException("Usuario no encontrado.");
+            }
+
+            usuario.Estado = Globales.INACTIVO;
+            _contexto.Usuarios.Update(usuario);
+            await _contexto.SaveChangesAsync();
+        }
+
+
+        public async Task SaveChangesAsync()
+        {
+            await _contexto.SaveChangesAsync();
         }
     }
 }

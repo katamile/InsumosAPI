@@ -371,3 +371,6 @@ FodyWeavers.xsd
 /.vs/InsumosAPI/DesignTimeBuild/.dtbcache.v2
 /.vs/InsumosAPI/v17/.suo
 /.vs/InsumosAPI/v17/DocumentLayout.json
+/.vs/InsumosAPI/v17/.futdcache.v2
+/InsumosAPI/InsumosAPI.csproj.user
+/InsumosAPI/InsumosAPI.csproj

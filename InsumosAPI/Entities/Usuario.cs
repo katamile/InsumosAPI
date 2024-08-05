@@ -37,7 +37,7 @@ namespace InsumosAPI.Entities
         public string Rol { get; set; } = null!;
 
         [RegularExpression("^[0-3]\\d*$", ErrorMessage = "El campo intentosfallidos debe ser un número entero mayor a cero.")]
-        public int? IntentosFallidos { get; set; }
+        public int? IntentosFallidos { get; set; } = 0;
 
     }
 }

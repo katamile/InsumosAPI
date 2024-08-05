@@ -1,6 +1,8 @@
 using InsumosAPI.Entities;
 using InsumosAPI.Middleware;
+using InsumosAPI.Repositories.LoginRepository;
 using InsumosAPI.Repositories.UsuarioRepository;
+using InsumosAPI.Services.LoginService;
 using InsumosAPI.Services.UsuarioService;
 using InsumosAPI.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -20,14 +22,23 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 // Agregar el contexto de la base de datos
-builder.Services.AddDbContext<InsumosDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("InsumosDBConnection")));
+builder.Services.AddScoped<IUserAccessRepository, UserAccessRepository>();
+builder.Services.AddScoped<CRUDInterceptor>();
+
+builder.Services.AddDbContext<InsumosDBContext>((serviceProvider, options) =>
+{
+    var interceptor = serviceProvider.GetRequiredService<CRUDInterceptor>();
+    options.UseSqlServer(builder.Configuration.GetConnectionString("InsumosDBConnection"))
+           .AddInterceptors(interceptor);
+});
 
 //builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 //builder.Services.AddScoped<IClienteService, ClienteService>();
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+
+builder.Services.AddScoped<ILoginService, LoginService>();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
@@ -78,6 +89,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 builder.Services.AddAuthorization();
+
+builder.Services.AddAuthorization();
+
+// Configuración de logging
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
+builder.Logging.AddFilter("System.IdentityModel.Tokens.Jwt", LogLevel.Debug);
 
 var app = builder.Build();
 

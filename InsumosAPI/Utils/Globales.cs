@@ -7,5 +7,9 @@
         internal const String BLOQUEADO = "B";
         internal const String INGRESO = "IN";
         internal const String EGRESO = "EG";
+
+        internal const string JWTKey = "JWTKey";
+        internal const string Issuer = "JWTIssuer";
+        internal const string Audience = "JWTAudience";
     }
 }

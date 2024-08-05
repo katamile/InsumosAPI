@@ -1,5 +1,7 @@
 ﻿using InsumosAPI.DTOs;
 using InsumosAPI.Entities;
+using InsumosAPI.Middleware.Exceptions.NotFound;
+using InsumosAPI.Middleware.Models;
 using InsumosAPI.Services.UsuarioService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +10,7 @@ namespace InsumosAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioService _usuarioService;
@@ -18,34 +21,66 @@ namespace InsumosAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize]
-        public async Task<List<Usuario>> GetAll() 
-        { 
-            return await _usuarioService.GetAll(); 
-        }
-
-
-        [HttpPost("login")]
-        public async Task<ActionResult<string>> Login(
-            [FromBody] UsuarioLoginRequest request)
+        public async Task<IActionResult> GetAll()
         {
-            var token = await _usuarioService.ValidarCredencialesAsync(request);
-            if (token == null)
-                return Unauthorized("Nombre de usuario o contraseña incorrectos.");
-
-            return Ok(new { token });
+            var usuarios = await _usuarioService.GetAll();
+            return Ok(usuarios);
         }
 
-        [HttpPost("cambiar-contraseña")]
-        public async Task<ActionResult> CambiarContraseña(
-            [FromBody] CambiarContraseñaRequest request)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(long id)
         {
-            var resultado = await _usuarioService.CambiarContraseñaAsync(request.Username, request.NuevaContraseña);
-            if (!resultado)
-                return BadRequest("No se pudo cambiar la contraseña.");
-
-            return Ok("Contraseña cambiada exitosamente.");
+            try
+            {
+                var usuarios = await _usuarioService.GetById(id);
+                return Ok(usuarios);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
+        [HttpPost("crear")]
+        public async Task<IActionResult> CrearUsuario([FromBody] UsuarioDTO request)
+        {
+            try
+            {
+                var result = await _usuarioService.CrearUsuarioAsync(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("modificar")]
+        public async Task<IActionResult> ModificarUsuario([FromBody] UsuarioDTO request)
+        {
+            try
+            {
+                var result = await _usuarioService.ModificarUsuarioAsync(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Eliminar(long id)
+        {
+            try
+            {
+                var result = await _usuarioService.EliminarUsuarioAsync(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

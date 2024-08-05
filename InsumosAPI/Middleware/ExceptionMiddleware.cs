@@ -50,50 +50,50 @@ namespace InsumosAPI.Middleware
             context.Response.ContentType = "application/json";
             var response = context.Response;
 
-            var errorResponse = new ErrorResponse();
+            var errorResponse = new MessageInfoDTO();
 
             switch (exception.GetBaseException())
             {
                 case BadRequestException ex:
                     response.StatusCode = 400;
-                    errorResponse.message = ex.Message;
-                    errorResponse.code = HttpStatusCode.BadRequest;
-                    errorResponse.exception = ex.GetType().Name.ToString();
+                    errorResponse.Message = ex.Message;
+                    errorResponse.Status = HttpStatusCode.BadRequest;
+                    errorResponse.Success = ex.GetType().Name.ToString();
                     break;
 
                 case NotFoundException ex:
                     response.StatusCode = 404;
-                    errorResponse.message = ex.Message;
-                    errorResponse.code = HttpStatusCode.NotFound;
-                    errorResponse.exception = ex.GetType().Name.ToString();
+                    errorResponse.Message = ex.Message;
+                    errorResponse.Status = HttpStatusCode.NotFound;
+                    errorResponse.Success = ex.GetType().Name.ToString();
                     break;
 
                 case ForbiddenException ex:
                     response.StatusCode = 403;
-                    errorResponse.message = ex.Message;
-                    errorResponse.code = HttpStatusCode.Forbidden;
-                    errorResponse.exception = ex.GetType().Name.ToString();
+                    errorResponse.Message = ex.Message;
+                    errorResponse.Status = HttpStatusCode.Forbidden;
+                    errorResponse.Success = ex.GetType().Name.ToString();
                     break;
 
                 case UnauthorizedException ex:
                     response.StatusCode = 401;
-                    errorResponse.message = ex.Message;
-                    errorResponse.code = HttpStatusCode.Unauthorized;
-                    errorResponse.exception = ex.GetType().Name.ToString();
+                    errorResponse.Message = ex.Message;
+                    errorResponse.Status = HttpStatusCode.Unauthorized;
+                    errorResponse.Success = ex.GetType().Name.ToString();
                     break;
 
                 case NotImplementedException ex:
                     response.StatusCode = 501;
-                    errorResponse.message = ex.Message;
-                    errorResponse.code = HttpStatusCode.NotImplemented;
-                    errorResponse.exception = ex.GetType().Name.ToString();
+                    errorResponse.Message = ex.Message;
+                    errorResponse.Status = HttpStatusCode.NotImplemented;
+                    errorResponse.Success = ex.GetType().Name.ToString();
                     break;
 
                 case ValidationException ex:
                     response.StatusCode = 400;
-                    errorResponse.message = ex.Message;
-                    errorResponse.code = HttpStatusCode.BadRequest;
-                    errorResponse.exception = ex.GetType().Name.ToString();
+                    errorResponse.Message = ex.Message;
+                    errorResponse.Status = HttpStatusCode.BadRequest;
+                    errorResponse.Success = ex.GetType().Name.ToString();
                     break;
                     
                 /*case InvalidOperationException ex:
@@ -119,9 +119,9 @@ namespace InsumosAPI.Middleware
 
                 default:
                     response.StatusCode = 500;
-                    errorResponse.message = "Error interno del servidor.";
-                    errorResponse.code = HttpStatusCode.InternalServerError;
-                    errorResponse.exception = exception.GetType().Name.ToString();
+                    errorResponse.Message = "Error interno del servidor.";
+                    errorResponse.Status = HttpStatusCode.InternalServerError;
+                    errorResponse.Success = exception.GetType().Name.ToString();
                     break;
             }
 

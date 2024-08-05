@@ -1,6 +1,7 @@
 ﻿using InsumosAPI.Middleware.Exceptions.Unauthorized;
 using InsumosAPI.Middleware.Models;
 using InsumosAPI.Utils;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 
@@ -8,12 +9,13 @@ public class JwtAuthorizationFilter
 {
     private readonly RequestDelegate _next;
     private readonly HttpClient _httpClient;
+    private readonly string _validateTokenUrl = "api/login/validate";
     private string mensajeError = "Token de autorización inválido o faltante. Por favor, proporcione un token válido.";
 
-    public JwtAuthorizationFilter(RequestDelegate next, IHttpClientFactory httpClientFactory)
+    public JwtAuthorizationFilter(RequestDelegate next, HttpClient httpClient)
     {
         _next = next;
-        _httpClient = httpClientFactory.CreateClient();
+        _httpClient = httpClient;
     }
 
     public async Task InvokeAsync(HttpContext context)
@@ -24,9 +26,11 @@ public class JwtAuthorizationFilter
             await ValidateTokenAsync(token);
             await _next(context);
         }
-        catch (UnauthorizedException)
+        catch (UnauthorizedException ex)
         {
-            throw new UnauthorizedException(mensajeError);
+            // Log the exception details here
+            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            await context.Response.WriteAsync($"{mensajeError} Detalle: {ex.Message}");
         }
     }
 
@@ -42,12 +46,17 @@ public class JwtAuthorizationFilter
 
     private async Task ValidateTokenAsync(string token)
     {
-        var jwtRequest = new JWTRequest { Token = token };
-        var jsonData = JsonSerializer.Serialize(jwtRequest);
+        var jsonData = JsonSerializer.Serialize(token);
         var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-        //var response = await Ok //_httpClient.PostAsync(Globales.VALIDATION_API_URL, content);
 
-        //if (!response.IsSuccessStatusCode)
-        //    throw new UnauthorizedException(mensajeError);
+        var response = await _httpClient.PostAsync(_validateTokenUrl, content);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var errorMessage = await response.Content.ReadAsStringAsync();
+            throw new UnauthorizedException(errorMessage);
+        }
     }
 }
+
+

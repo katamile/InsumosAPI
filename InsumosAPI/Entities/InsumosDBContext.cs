@@ -1,12 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using InsumosAPI.Repositories.LoginRepository;
+using InsumosAPI.Utils;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InsumosAPI.Entities
 {
     public class InsumosDBContext : DbContext
     {
-        public InsumosDBContext(DbContextOptions<InsumosDBContext> options) : base(options) 
-        { 
+        private readonly CRUDInterceptor _crudInterceptor;
+
+        public InsumosDBContext(DbContextOptions<InsumosDBContext> options, CRUDInterceptor crudInterceptor)
+            : base(options)
+        {
+            _crudInterceptor = crudInterceptor;
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
@@ -128,7 +134,9 @@ namespace InsumosAPI.Entities
                     Nombre = "Génerico",
                     Estado = "A",
                     FechaCreacion = DateTime.UtcNow,
-                    UsuarioCreacion = "SYSTEM"
+                    UsuarioCreacion = "SYSTEM",
+                    Telefono = "+1-800-123-4567",
+                    Direccion = "123 Calle Principal, Ciudad, País"
                 },
 
                 new Laboratorio
@@ -137,7 +145,9 @@ namespace InsumosAPI.Entities
                     Nombre = "MK",
                     Estado = "A",
                     FechaCreacion = DateTime.UtcNow,
-                    UsuarioCreacion = "SYSTEM"
+                    UsuarioCreacion = "SYSTEM",
+                    Telefono = "+1-800-987-6543",
+                    Direccion = "456 Avenida Secundaria, Ciudad, País"
                 },
 
                 new Laboratorio
@@ -146,7 +156,9 @@ namespace InsumosAPI.Entities
                     Nombre = "Genfar",
                     Estado = "A",
                     FechaCreacion = DateTime.UtcNow,
-                    UsuarioCreacion = "SYSTEM"
+                    UsuarioCreacion = "SYSTEM",
+                    Telefono = "+1-800-555-1212",
+                    Direccion = "789 Calle Terciaria, Ciudad, País"
                 }
             );
 
@@ -184,6 +196,18 @@ namespace InsumosAPI.Entities
              );
             #endregion
 
+        }
+
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            _crudInterceptor.OnBeforeSaveChanges(this);
+            return base.SaveChanges(acceptAllChangesOnSuccess);
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            _crudInterceptor.OnBeforeSaveChanges(this);
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }
