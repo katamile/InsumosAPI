@@ -2,6 +2,7 @@
 using InsumosAPI.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System.Linq.Expressions;
 
 namespace InsumosAPI.Entities
 {
@@ -27,6 +28,18 @@ namespace InsumosAPI.Entities
         {
             base.OnModelCreating(modelBuilder);
 
+            foreach (var entity in modelBuilder.Model.GetEntityTypes())
+            {
+                var property = entity.ClrType.GetProperty("Estado");
+                if (property != null)
+                {
+                    var parameter = Expression.Parameter(entity.ClrType, "e");
+                    var filter = Expression.Lambda(
+                        Expression.Equal(Expression.Property(parameter, property), Expression.Constant(Globales.ACTIVO)),
+                        parameter);
+                    entity.SetQueryFilter(filter);
+                }
+            }
 
             modelBuilder.Entity<Cliente>()
                 .ToTable("Clientes")

@@ -2,6 +2,7 @@
 using InsumosAPI.Entities;
 using InsumosAPI.Middleware.Exceptions.NotFound;
 using InsumosAPI.Middleware.Models;
+using InsumosAPI.Repositories.LoginRepository;
 using InsumosAPI.Utils;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
@@ -11,10 +12,12 @@ namespace InsumosAPI.Repositories.UsuarioRepository
     public class UsuarioRepository : IUsuarioRepository
     {
         private readonly InsumosDBContext _contexto;
+        private readonly IUserAccessRepository _userAccessRepository;
 
-        public UsuarioRepository(InsumosDBContext contexto)
+        public UsuarioRepository(InsumosDBContext contexto, IUserAccessRepository userAccessRepository)
         {
             _contexto = contexto;
+            _userAccessRepository = userAccessRepository;
         }
 
         public async Task<List<Usuario>> GetAll()
@@ -32,18 +35,17 @@ namespace InsumosAPI.Repositories.UsuarioRepository
 
         public async Task<Usuario> ObtenerPorUsernameAsync(string username)
         {
-            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Username == username && u.Estado==Globales.ACTIVO)
-                                                                ?? throw new NotFoundException("No se encuentran usuario."); 
+            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Username == username && u.Estado==Globales.ACTIVO); 
         }
 
         public async Task<Usuario> ObtenerUsuarioCambiar(string username)
         {
-            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Username == username) ?? throw new NotFoundException("No se encuentran usuarios.");
+            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Username == username);
         }
 
         public async Task<Usuario> ObtenerPorIdentificacionAsync(string identificacion)
         {
-            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Identificacion == identificacion) ?? throw new NotFoundException("No existen registros.");
+            return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Identificacion == identificacion);
         }
 
         public async Task<MessageInfoDTO> CrearNuevoUsuario(UsuarioDTO usuario)
@@ -95,11 +97,17 @@ namespace InsumosAPI.Repositories.UsuarioRepository
                 throw new NotFoundException("Usuario no encontrado.");
             }
 
+            // Marcar la entidad como eliminada lógicamente
             usuario.Estado = Globales.INACTIVO;
+            usuario.FechaEliminacion = DateTime.Now;
+            usuario.UsuarioEliminacion = _userAccessRepository.ObtenerUsuarioLogin();
+
+            // Actualizar la entidad en el contexto
             _contexto.Usuarios.Update(usuario);
+
+            // Guardar los cambios
             await _contexto.SaveChangesAsync();
         }
-
 
         public async Task SaveChangesAsync()
         {
