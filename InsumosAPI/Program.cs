@@ -4,10 +4,12 @@ using InsumosAPI.Repositories.ClienteRepository;
 using InsumosAPI.Repositories.LaboratorioRepository;
 using InsumosAPI.Repositories.LoginRepository;
 using InsumosAPI.Repositories.UsuarioRepository;
+using InsumosAPI.Repositories.ProveedorRepository;
 using InsumosAPI.Services.ClienteService;
 using InsumosAPI.Services.LaboratorioService;
 using InsumosAPI.Services.LoginService;
 using InsumosAPI.Services.UsuarioService;
+using InsumosAPI.Services.ProveedorService;
 using InsumosAPI.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -44,6 +46,9 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 builder.Services.AddScoped<ILaboratorioRepository, LaboratorioRepository>();
 builder.Services.AddScoped<ILaboratorioService, LaboratorioService>();
+
+builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
+builder.Services.AddScoped<IProveedorService, ProveedorService>();
 
 builder.Services.AddScoped<ILoginService, LoginService>();
 
