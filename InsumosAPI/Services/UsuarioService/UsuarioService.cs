@@ -215,7 +215,112 @@ namespace InsumosAPI.Services.UsuarioService
                 throw new UniqueFieldException("cédula");
             }
 
+            // Verificar la validez de la identificación
+            bool esIdentificacionValida = VerificaIdentificacion(request.Identificacion);
+            if (!esIdentificacionValida)
+            {
+                throw new InvalidFieldException("La identificación proporcionada no es válida.");
+            }
+
             return true;
+        }
+
+        public static bool VerificaIdentificacion(string identificacion)
+        {
+            if (string.IsNullOrWhiteSpace(identificacion) || identificacion.Length < 10)
+            {
+                return false;
+            }
+
+            identificacion = identificacion.Trim();
+            var valced = identificacion.ToCharArray();
+            int provincia = int.Parse(new string(valced, 0, 2));
+
+            if (provincia <= 0 || provincia >= 31) //Permitir cédulas emitidas en Consulados
+            {
+                return false;
+            }
+
+            int tercerDigito = int.Parse(valced[2].ToString());
+            if (tercerDigito < 6)
+            {
+                return VerificaCedula(valced);
+            }
+            else if (tercerDigito == 6)
+            {
+                if (valced.Length == 13)
+                {
+                    // Validar RUC si el tercer dígito es 6 y la longitud es 13
+                    return true;
+                }
+                else
+                {
+                    return VerificaCedula(valced);
+                }
+            }
+            else if (tercerDigito == 8)
+            {
+                if (valced.Length == 13)
+                {
+                    return VerificaSectorPublico(valced);
+                }
+                return false;
+            }
+            else if (tercerDigito == 9)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool VerificaRUCPersonaNatural(char[] validarCedula)
+        {
+            try
+            {
+                const string establecimiento = "001";
+                var establecimientoRUC = new string(validarCedula, 10, 3);
+                return establecimientoRUC.Equals(establecimiento) && VerificaCedula(validarCedula);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static bool VerificaCedula(char[] validarCedula)
+        {
+            int sumaPares = 0, sumaImpares = 0;
+            for (int i = 0; i < 9; i += 2)
+            {
+                int valor = 2 * (validarCedula[i] - '0');
+                if (valor > 9) valor -= 9;
+                sumaPares += valor;
+            }
+
+            for (int i = 1; i < 9; i += 2)
+            {
+                sumaImpares += (validarCedula[i] - '0');
+            }
+
+            int sumaTotal = sumaPares + sumaImpares;
+            int verifi = (sumaTotal % 10 == 0) ? 0 : 10 - (sumaTotal % 10);
+            return verifi == (validarCedula[9] - '0');
+        }
+
+        private static bool VerificaSectorPublico(char[] validarCedula)
+        {
+            int sumaCoeficientes = 0;
+            int[] coeficientes = { 3, 2, 7, 6, 5, 4, 3, 2 };
+
+            for (int i = 0; i < 8; i++)
+            {
+                int producto = (validarCedula[i] - '0') * coeficientes[i];
+                sumaCoeficientes += producto;
+            }
+
+            int verificador = (sumaCoeficientes % 11 == 0) ? 0 : 11 - (sumaCoeficientes % 11);
+            return verificador == (validarCedula[8] - '0');
         }
 
         private UsuarioDTO ValidarUpdate(UsuarioDTO request, Usuario usuario)

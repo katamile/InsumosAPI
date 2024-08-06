@@ -17,6 +17,9 @@ namespace InsumosAPI.Entities
         [Required(ErrorMessage = "El nombre no puede ser nulo.")]
         public string NombreCompleto { get; set; } = null!;
 
+        [Required(ErrorMessage = "La razón Social no puede ser nula.")]
+        public string RazonSocial { get; set; } = null!;
+
         [RegularExpression("^\\+?[1-9]\\d{1,14}$", ErrorMessage = "El formato del número telefónico no es válido.")]
         public string? Telefono { get; set; }
 

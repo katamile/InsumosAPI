@@ -1,7 +1,11 @@
 using InsumosAPI.Entities;
 using InsumosAPI.Middleware;
+using InsumosAPI.Repositories.ClienteRepository;
+using InsumosAPI.Repositories.LaboratorioRepository;
 using InsumosAPI.Repositories.LoginRepository;
 using InsumosAPI.Repositories.UsuarioRepository;
+using InsumosAPI.Services.ClienteService;
+using InsumosAPI.Services.LaboratorioService;
 using InsumosAPI.Services.LoginService;
 using InsumosAPI.Services.UsuarioService;
 using InsumosAPI.Utils;
@@ -32,11 +36,14 @@ builder.Services.AddDbContext<InsumosDBContext>((serviceProvider, options) =>
            .AddInterceptors(interceptor);
 });
 
-//builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
-//builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IClienteService, ClienteService>();
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+
+builder.Services.AddScoped<ILaboratorioRepository, LaboratorioRepository>();
+builder.Services.AddScoped<ILaboratorioService, LaboratorioService>();
 
 builder.Services.AddScoped<ILoginService, LoginService>();
 

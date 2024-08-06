@@ -21,9 +21,8 @@ namespace InsumosAPI.Entities
         [ForeignKey(nameof(IdLaboratorio))]
         public Laboratorio Laboratorio { get; set; } = null!;
 
-        [Range(0, int.MaxValue, ErrorMessage = "El stock debe ser un número positivo.")]
-
-        public int Stock { get; set; }
+        [Required(ErrorMessage = "El producto no puede ser nulo.")]
+        public long IdMovimiento { get; set; }
 
         [Range(0, double.MaxValue, ErrorMessage = "El precio de compra debe ser un número positivo.")]
         [Precision(18, 2)]

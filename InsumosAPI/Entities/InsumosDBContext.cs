@@ -69,6 +69,18 @@ namespace InsumosAPI.Entities
                 .ToTable("VentaDetalle")
                 .HasKey(u => u.IdVentaDetalle);
 
+            modelBuilder.Entity<MovimientoInventario>()
+                .ToTable("MovimientoInventario")
+                .HasKey(u => u.IdMovimiento);
+
+            modelBuilder.Entity<Compra>()
+                .ToTable("Compra")
+                .HasKey(u => u.IdCompra);
+
+            modelBuilder.Entity<CompraDetalle>()
+                .ToTable("CompraDetalle")
+                .HasKey(u => u.IdCompraDetalle);
+
             #region DATA DEFAULT
 
             modelBuilder.Entity<Usuario>().HasData(
@@ -110,6 +122,7 @@ namespace InsumosAPI.Entities
                     Telefono = "+593987654321",
                     Direccion = "Av. Quito 123, Quito, Ecuador",
                     Correo = "ana.rodriguez@example.com",
+                    RazonSocial="Natural",
                     Estado = "A",
                     FechaCreacion = DateTime.UtcNow,
                     UsuarioCreacion = "SYSTEM"
@@ -122,6 +135,7 @@ namespace InsumosAPI.Entities
                     Telefono = "+593987654322",
                     Direccion = "Calle Guayaquil 456, Guayaquil, Ecuador",
                     Correo = "carlos.fernandez@example.com",
+                    RazonSocial = "Natural",
                     Estado = "A",
                     FechaCreacion = DateTime.UtcNow,
                     UsuarioCreacion = "SYSTEM"
@@ -134,6 +148,7 @@ namespace InsumosAPI.Entities
                     Telefono = "+593987654323",
                     Direccion = "Av. Cuenca 789, Cuenca, Ecuador",
                     Correo = "lucia.morales@example.com",
+                    RazonSocial = "Natural",
                     Estado = "A",
                     FechaCreacion = DateTime.UtcNow,
                     UsuarioCreacion = "SYSTEM"
