@@ -86,7 +86,7 @@ namespace InsumosAPI.Migrations
                             Correo = "ana.rodriguez@example.com",
                             Direccion = "Av. Quito 123, Quito, Ecuador",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(823),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4134),
                             Identificacion = "0998765432",
                             NombreCompleto = "Ana María Rodríguez",
                             RazonSocial = "Natural",
@@ -99,7 +99,7 @@ namespace InsumosAPI.Migrations
                             Correo = "carlos.fernandez@example.com",
                             Direccion = "Calle Guayaquil 456, Guayaquil, Ecuador",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(826),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4139),
                             Identificacion = "0987654321",
                             NombreCompleto = "Carlos Fernández",
                             RazonSocial = "Natural",
@@ -112,7 +112,7 @@ namespace InsumosAPI.Migrations
                             Correo = "lucia.morales@example.com",
                             Direccion = "Av. Cuenca 789, Cuenca, Ecuador",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(830),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4142),
                             Identificacion = "0976543210",
                             NombreCompleto = "Lucía Morales",
                             RazonSocial = "Natural",
@@ -290,7 +290,7 @@ namespace InsumosAPI.Migrations
                             IdLaboratorio = 1L,
                             Direccion = "123 Calle Principal, Ciudad, País",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(864),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4178),
                             Nombre = "Génerico",
                             Telefono = "+1-800-123-4567",
                             UsuarioCreacion = "SYSTEM"
@@ -300,7 +300,7 @@ namespace InsumosAPI.Migrations
                             IdLaboratorio = 2L,
                             Direccion = "456 Avenida Secundaria, Ciudad, País",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(867),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4182),
                             Nombre = "MK",
                             Telefono = "+1-800-987-6543",
                             UsuarioCreacion = "SYSTEM"
@@ -310,7 +310,7 @@ namespace InsumosAPI.Migrations
                             IdLaboratorio = 3L,
                             Direccion = "789 Calle Terciaria, Ciudad, País",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(870),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4184),
                             Nombre = "Genfar",
                             Telefono = "+1-800-555-1212",
                             UsuarioCreacion = "SYSTEM"
@@ -481,7 +481,7 @@ namespace InsumosAPI.Migrations
                             IdProveedor = 1L,
                             Direccion = "Av. Central 123, Ciudad",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(911),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4227),
                             Nombre = "Farmacéutica ABC",
                             Telefono = "0918456789",
                             UsuarioCreacion = "SYSTEM"
@@ -491,7 +491,7 @@ namespace InsumosAPI.Migrations
                             IdProveedor = 2L,
                             Direccion = "Calle de la Salud 456, Ciudad",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(913),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4230),
                             Nombre = "Distribuidora XYZ",
                             Telefono = "0978986756",
                             UsuarioCreacion = "SYSTEM"
@@ -501,7 +501,7 @@ namespace InsumosAPI.Migrations
                             IdProveedor = 3L,
                             Direccion = "Paseo de los Medicamentos 789, Ciudad",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(916),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4233),
                             Nombre = "Laboratorios DEF",
                             Telefono = "0912345678",
                             UsuarioCreacion = "SYSTEM"
@@ -584,7 +584,7 @@ namespace InsumosAPI.Migrations
                             Apellidos = "Farmacia",
                             Contraseña = "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(586),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(3891),
                             Identificacion = "0999999999",
                             IntentosFallidos = 0,
                             Nombres = "Admin",
@@ -598,7 +598,7 @@ namespace InsumosAPI.Migrations
                             Apellidos = "Orellana Maridueña",
                             Contraseña = "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(601),
+                            FechaCreacion = new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(3907),
                             Identificacion = "0955416755",
                             IntentosFallidos = 0,
                             Nombres = "Milena Saray",
@@ -635,9 +635,6 @@ namespace InsumosAPI.Migrations
                     b.Property<long>("IdCliente")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("IdUsuario")
-                        .HasColumnType("bigint");
-
                     b.Property<decimal>("Iva")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
@@ -667,8 +664,6 @@ namespace InsumosAPI.Migrations
                     b.HasKey("IdVenta");
 
                     b.HasIndex("IdCliente");
-
-                    b.HasIndex("IdUsuario");
 
                     b.ToTable("Venta", (string)null);
                 });
@@ -790,15 +785,7 @@ namespace InsumosAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("InsumosAPI.Entities.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("IdUsuario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Cliente");
-
-                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("InsumosAPI.Entities.VentaDetalle", b =>

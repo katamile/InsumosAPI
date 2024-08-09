@@ -19,12 +19,6 @@ namespace InsumosAPI.Entities
         [ForeignKey(nameof(IdCliente))]
         public Cliente Cliente { get; set; } = null!;
 
-        [Required(ErrorMessage = "El usuario no puede ser nulo.")]
-        public long IdUsuario { get; set; }
-
-        [ForeignKey(nameof(IdUsuario))]
-        public Usuario Usuario { get; set; } = null!;
-
         [Range(0, double.MaxValue, ErrorMessage = "El subtotal debe ser un número positivo.")]
         [Precision(18, 2)]
         public decimal Subtotal { get; set; }

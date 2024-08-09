@@ -24,6 +24,8 @@ using InsumosAPI.Repositories.MovimientoInventarioRepository;
 using InsumosAPI.Services.MovimientoInventarioService;
 using InsumosAPI.Repositories.ComprasRepository;
 using InsumosAPI.Services.ComprasService;
+using InsumosAPI.Repositories.VentasRepository;
+using InsumosAPI.Services.VentasService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -64,6 +66,9 @@ builder.Services.AddScoped<IMovimientoInventarioService, MovimientoInventarioSer
 
 builder.Services.AddScoped<IComprasRepository, ComprasRepository>();
 builder.Services.AddScoped<IComprasService, ComprasService>();
+
+builder.Services.AddScoped<IVentasRepository, VentasRepository>();
+builder.Services.AddScoped<IVentasService, VentasService>();
 
 builder.Services.AddScoped<ILoginService, LoginService>();
 

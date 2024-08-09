@@ -72,7 +72,6 @@ namespace InsumosAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FechaVenta = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IdCliente = table.Column<long>(type: "bigint", nullable: false),
-                    IdUsuario = table.Column<long>(type: "bigint", nullable: false),
                     Subtotal = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     IvaPor = table.Column<decimal>(type: "decimal(5,2)", precision: 5, scale: 2, nullable: false),
                     Iva = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
@@ -93,12 +92,6 @@ namespace InsumosAPI.Migrations
                         column: x => x.IdCliente,
                         principalTable: "Clientes",
                         principalColumn: "IdCliente",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Venta_Usuarios_IdUsuario",
-                        column: x => x.IdUsuario,
-                        principalTable: "Usuarios",
-                        principalColumn: "IdUsuario",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -270,30 +263,30 @@ namespace InsumosAPI.Migrations
                 keyColumn: "IdCliente",
                 keyValue: 1L,
                 columns: new[] { "FechaCreacion", "RazonSocial" },
-                values: new object[] { new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(823), "Natural" });
+                values: new object[] { new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4134), "Natural" });
 
             migrationBuilder.UpdateData(
                 table: "Clientes",
                 keyColumn: "IdCliente",
                 keyValue: 2L,
                 columns: new[] { "FechaCreacion", "RazonSocial" },
-                values: new object[] { new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(826), "Natural" });
+                values: new object[] { new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4139), "Natural" });
 
             migrationBuilder.UpdateData(
                 table: "Clientes",
                 keyColumn: "IdCliente",
                 keyValue: 3L,
                 columns: new[] { "FechaCreacion", "RazonSocial" },
-                values: new object[] { new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(830), "Natural" });
+                values: new object[] { new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4142), "Natural" });
 
             migrationBuilder.InsertData(
                 table: "Laboratorio",
                 columns: new[] { "IdLaboratorio", "Direccion", "Estado", "FechaCreacion", "FechaEliminacion", "FechaModificacion", "Nombre", "Telefono", "UsuarioCreacion", "UsuarioEliminacion", "UsuarioModificacion" },
                 values: new object[,]
                 {
-                    { 1L, "123 Calle Principal, Ciudad, País", "A", new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(864), null, null, "Génerico", "+1-800-123-4567", "SYSTEM", null, null },
-                    { 2L, "456 Avenida Secundaria, Ciudad, País", "A", new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(867), null, null, "MK", "+1-800-987-6543", "SYSTEM", null, null },
-                    { 3L, "789 Calle Terciaria, Ciudad, País", "A", new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(870), null, null, "Genfar", "+1-800-555-1212", "SYSTEM", null, null }
+                    { 1L, "123 Calle Principal, Ciudad, País", "A", new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4178), null, null, "Génerico", "+1-800-123-4567", "SYSTEM", null, null },
+                    { 2L, "456 Avenida Secundaria, Ciudad, País", "A", new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4182), null, null, "MK", "+1-800-987-6543", "SYSTEM", null, null },
+                    { 3L, "789 Calle Terciaria, Ciudad, País", "A", new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4184), null, null, "Genfar", "+1-800-555-1212", "SYSTEM", null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -301,9 +294,9 @@ namespace InsumosAPI.Migrations
                 columns: new[] { "IdProveedor", "Direccion", "Estado", "FechaCreacion", "FechaEliminacion", "FechaModificacion", "Nombre", "Telefono", "UsuarioCreacion", "UsuarioEliminacion", "UsuarioModificacion" },
                 values: new object[,]
                 {
-                    { 1L, "Av. Central 123, Ciudad", "A", new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(911), null, null, "Farmacéutica ABC", "0918456789", "SYSTEM", null, null },
-                    { 2L, "Calle de la Salud 456, Ciudad", "A", new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(913), null, null, "Distribuidora XYZ", "0978986756", "SYSTEM", null, null },
-                    { 3L, "Paseo de los Medicamentos 789, Ciudad", "A", new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(916), null, null, "Laboratorios DEF", "0912345678", "SYSTEM", null, null }
+                    { 1L, "Av. Central 123, Ciudad", "A", new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4227), null, null, "Farmacéutica ABC", "0918456789", "SYSTEM", null, null },
+                    { 2L, "Calle de la Salud 456, Ciudad", "A", new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4230), null, null, "Distribuidora XYZ", "0978986756", "SYSTEM", null, null },
+                    { 3L, "Paseo de los Medicamentos 789, Ciudad", "A", new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(4233), null, null, "Laboratorios DEF", "0912345678", "SYSTEM", null, null }
                 });
 
             migrationBuilder.UpdateData(
@@ -311,14 +304,14 @@ namespace InsumosAPI.Migrations
                 keyColumn: "IdUsuario",
                 keyValue: 1L,
                 columns: new[] { "Contraseña", "FechaCreacion", "IntentosFallidos" },
-                values: new object[] { "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS", new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(586), 0 });
+                values: new object[] { "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS", new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(3891), 0 });
 
             migrationBuilder.UpdateData(
                 table: "Usuarios",
                 keyColumn: "IdUsuario",
                 keyValue: 2L,
                 columns: new[] { "Contraseña", "FechaCreacion", "IntentosFallidos" },
-                values: new object[] { "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS", new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(601), 0 });
+                values: new object[] { "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS", new DateTime(2024, 8, 9, 8, 0, 11, 992, DateTimeKind.Local).AddTicks(3907), 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Compra_IdProveedor",
@@ -349,11 +342,6 @@ namespace InsumosAPI.Migrations
                 name: "IX_Venta_IdCliente",
                 table: "Venta",
                 column: "IdCliente");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Venta_IdUsuario",
-                table: "Venta",
-                column: "IdUsuario");
 
             migrationBuilder.CreateIndex(
                 name: "IX_VentaDetalle_IdProducto",
