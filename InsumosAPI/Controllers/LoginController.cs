@@ -25,7 +25,7 @@ namespace InsumosAPI.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UsuarioLoginRequest loginRequest)
         {
-            if (!string.IsNullOrEmpty(loginRequest.Username) || !string.IsNullOrEmpty(loginRequest.Username))
+            if (string.IsNullOrEmpty(loginRequest.Username) || string.IsNullOrEmpty(loginRequest.Password))
             {
                 throw new InvalidFieldException("No se ha ingresado usuario y/o contraseña.");
             }
