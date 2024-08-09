@@ -14,6 +14,9 @@ namespace InsumosAPI.Entities
         [Required(ErrorMessage = "El producto no puede ser nulo.")]
         public long IdProducto { get; set; }
 
+        [ForeignKey(nameof(IdProducto))]
+        public Producto Producto { get; set; } = null!;
+
         [RegularExpression("^(IN|EG)\\d*$", ErrorMessage = $"El campo Tipo Movimiento debe ser {Globales.INGRESO} o {Globales.EGRESO}")]
         public string TipoMovimiento { get; set; } = null!;
 

@@ -27,71 +27,36 @@ namespace InsumosAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(long id)
         {
-            try
-            {
-                var Laboratorios = await _LaboratorioService.GetById(id);
-                return Ok(Laboratorios);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var Laboratorios = await _LaboratorioService.GetById(id);
+            return Ok(Laboratorios);
         }
 
         [HttpGet("consultaPorNombre")]
         public async Task<IActionResult> GetByName([FromQuery]string nombre)
         {
-            try
-            {
-                var Laboratorios = await _LaboratorioService.GetByNombre(nombre);
-                return Ok(Laboratorios);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var Laboratorios = await _LaboratorioService.GetByNombre(nombre);
+            return Ok(Laboratorios);
         }
 
         [HttpPost("crear")]
         public async Task<IActionResult> CrearLaboratorio([FromBody] LaboratorioDTO request)
         {
-            try
-            {
-                var result = await _LaboratorioService.CrearLaboratorioAsync(request);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _LaboratorioService.CrearLaboratorioAsync(request);
+            return Ok(result);
         }
 
         [HttpPut("modificar")]
         public async Task<IActionResult> ModificarLaboratorio([FromBody] LaboratorioDTO request)
         {
-            try
-            {
-                var result = await _LaboratorioService.ModificarLaboratorioAsync(request);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _LaboratorioService.ModificarLaboratorioAsync(request);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Eliminar(long id)
         {
-            try
-            {
-                var result = await _LaboratorioService.EliminarLaboratorioAsync(id);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _LaboratorioService.EliminarLaboratorioAsync(id);
+            return Ok(result);
         }
     }
 }

@@ -28,19 +28,8 @@ namespace InsumosAPI.Controllers
             if (loginRequest == null)
                 return BadRequest("Datos de inicio de sesión inválidos.");
 
-            try
-            {
-                var jwtRequest = await _loginService.LoginUsuario(loginRequest);
-                return Ok(jwtRequest);
-            }
-            catch (InvalidaUserOrPasswordException)
-            {
-                return Unauthorized("Nombre de usuario o contraseña inválidos.");
-            }
-            catch (InvalidSintaxisException)
-            {
-                return BadRequest("Datos de inicio de sesión inválidos.");
-            }
+            var jwtRequest = await _loginService.LoginUsuario(loginRequest);
+            return Ok(jwtRequest);
         }
 
         [HttpPost("validate")]
@@ -49,15 +38,8 @@ namespace InsumosAPI.Controllers
             if (string.IsNullOrEmpty(token))
                 return BadRequest("Token no proporcionado.");
 
-            try
-            {
-                var validationResult = await _loginService.ValidarToken(token);
-                return Ok(validationResult);
-            }
-            catch (InvalidTokenException)
-            {
-                return Unauthorized("Token inválido.");
-            }
+            var validationResult = await _loginService.ValidarToken(token);
+            return Ok(validationResult);
         }
 
         [HttpPost("refresh")]
@@ -66,15 +48,8 @@ namespace InsumosAPI.Controllers
             if (string.IsNullOrEmpty(token))
                 return BadRequest("Token no proporcionado.");
 
-            try
-            {
-                var jwtRequest = await _loginService.RefrescarToken(token);
-                return Ok(jwtRequest);
-            }
-            catch (InvalidTokenException)
-            {
-                return Unauthorized("Token inválido.");
-            }
+            var jwtRequest = await _loginService.RefrescarToken(token);
+            return Ok(jwtRequest);
         }
 
         [HttpPost("cambiar-contraseña")]

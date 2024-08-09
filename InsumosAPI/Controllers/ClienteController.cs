@@ -30,75 +30,36 @@ namespace InsumosAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(long id)
         {
-            try
-            {
-                var cliente = await _clienteService.GetById(id);
-                return Ok(cliente);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var cliente = await _clienteService.GetById(id);
+            return Ok(cliente);
         }
 
         [HttpGet("identificacion/{identificacion}")]
         public async Task<IActionResult> GetByIdentificacion(string identificacion)
         {
-            try
-            {
-                var cliente = await _clienteService.GetByIdentificacion(identificacion);
-                return Ok(cliente);
-            }
-            catch (NotFoundException)
-            {
-                return NotFound("Cliente no encontrado.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var cliente = await _clienteService.GetByIdentificacion(identificacion);
+            return Ok(cliente);
         }
 
         [HttpPost("crear")]
         public async Task<IActionResult> CrearCliente([FromBody] ClienteDTO request)
         {
-            try
-            {
-                var result = await _clienteService.CrearClienteAsync(request);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _clienteService.CrearClienteAsync(request);
+            return Ok(result);
         }
 
         [HttpPut("modificar")]
         public async Task<IActionResult> ModificarCliente([FromBody] ClienteDTO request)
         {
-            try
-            {
-                var result = await _clienteService.ModificarClienteAsync(request);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _clienteService.ModificarClienteAsync(request);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Eliminar(long id)
         {
-            try
-            {
-                var result = await _clienteService.EliminarClienteAsync(id);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _clienteService.EliminarClienteAsync(id);
+            return Ok(result);
         }
     }
 }

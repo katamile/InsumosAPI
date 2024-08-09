@@ -6,7 +6,7 @@ namespace InsumosAPI.DTOs
     {
         public long IdMovimiento { get; set; }
         public long IdProducto { get; set; }
-        public Producto Producto { get; set; } = null!;
+        public string Producto { get; set; } = null!;
         public string TipoMovimiento { get; set; } = null!;
         public int StockProducto { get; set; }
         public int CantidadMovimiento { get; set; }

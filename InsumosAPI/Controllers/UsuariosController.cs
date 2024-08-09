@@ -30,57 +30,29 @@ namespace InsumosAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(long id)
         {
-            try
-            {
-                var usuarios = await _usuarioService.GetById(id);
-                return Ok(usuarios);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var usuarios = await _usuarioService.GetById(id);
+            return Ok(usuarios);
         }
 
         [HttpPost("crear")]
         public async Task<IActionResult> CrearUsuario([FromBody] UsuarioDTO request)
         {
-            try
-            {
-                var result = await _usuarioService.CrearUsuarioAsync(request);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _usuarioService.CrearUsuarioAsync(request);
+            return Ok(result);
         }
 
         [HttpPut("modificar")]
         public async Task<IActionResult> ModificarUsuario([FromBody] UsuarioDTO request)
         {
-            try
-            {
-                var result = await _usuarioService.ModificarUsuarioAsync(request);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _usuarioService.ModificarUsuarioAsync(request);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Eliminar(long id)
         {
-            try
-            {
-                var result = await _usuarioService.EliminarUsuarioAsync(id);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _usuarioService.EliminarUsuarioAsync(id);
+            return Ok(result);
         }
     }
 }

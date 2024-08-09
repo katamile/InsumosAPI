@@ -23,6 +23,9 @@ namespace InsumosAPI.Entities
         public DbSet<Proveedor> Proveedores { get; set; }
         public DbSet<Venta> Ventas { get; set; }
         public DbSet<VentaDetalle> VentaDetalles { get; set; }
+        public DbSet<Compra> Compras { get; set; }
+        public DbSet<CompraDetalle> CompraDetalles { get; set; }
+        public DbSet<MovimientoInventario> MovimientoInventarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

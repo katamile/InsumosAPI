@@ -27,71 +27,36 @@ namespace InsumosAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(long id)
         {
-            try
-            {
-                var Proveedors = await _ProveedorService.GetById(id);
-                return Ok(Proveedors);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var Proveedors = await _ProveedorService.GetById(id);
+            return Ok(Proveedors);
         }
 
         [HttpGet("consultaPorNombre")]
         public async Task<IActionResult> GetByName([FromQuery] string nombre)
         {
-            try
-            {
-                var Proveedors = await _ProveedorService.GetByNombre(nombre);
-                return Ok(Proveedors);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var Proveedors = await _ProveedorService.GetByNombre(nombre);
+            return Ok(Proveedors);
         }
 
         [HttpPost("crear")]
         public async Task<IActionResult> CrearProveedor([FromBody] ProveedorDTO request)
         {
-            try
-            {
-                var result = await _ProveedorService.CrearProveedorAsync(request);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _ProveedorService.CrearProveedorAsync(request);
+            return Ok(result);
         }
 
         [HttpPut("modificar")]
         public async Task<IActionResult> ModificarProveedor([FromBody] ProveedorDTO request)
         {
-            try
-            {
-                var result = await _ProveedorService.ModificarProveedorAsync(request);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _ProveedorService.ModificarProveedorAsync(request);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Eliminar(long id)
         {
-            try
-            {
-                var result = await _ProveedorService.EliminarProveedorAsync(id);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _ProveedorService.EliminarProveedorAsync(id);
+            return Ok(result);
         }
     }
 }

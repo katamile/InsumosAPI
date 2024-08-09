@@ -31,6 +31,8 @@ namespace InsumosAPI.Repositories.ProductoRepository
                  {
                      IdProducto = p.IdProducto,
                      Nombre = p.Nombre,
+                     IdLaboratorio = p.IdLaboratorio,
+                     LaboratorioName =  p.Laboratorio.Nombre,
                      PrecioCompra = p.PrecioCompra,
                      PrecioVenta = p.PrecioVenta,
                      RutaImg = p.RutaImg,
@@ -49,6 +51,8 @@ namespace InsumosAPI.Repositories.ProductoRepository
                 {
                     IdProducto = p.IdProducto,
                     Nombre = p.Nombre,
+                    IdLaboratorio = p.IdLaboratorio,
+                    LaboratorioName = p.Laboratorio.Nombre,
                     PrecioCompra = p.PrecioCompra,
                     PrecioVenta = p.PrecioVenta,
                     RutaImg = p.RutaImg,
@@ -77,6 +81,8 @@ namespace InsumosAPI.Repositories.ProductoRepository
                 {
                     IdProducto = p.IdProducto,
                     Nombre = p.Nombre,
+                    IdLaboratorio = p.IdLaboratorio,
+                    LaboratorioName = p.Laboratorio.Nombre,
                     PrecioCompra = p.PrecioCompra,
                     PrecioVenta = p.PrecioVenta,
                     RutaImg = p.RutaImg,
