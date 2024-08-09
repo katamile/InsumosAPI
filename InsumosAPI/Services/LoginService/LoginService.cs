@@ -1,4 +1,5 @@
 ﻿using InsumosAPI.DTOs;
+using InsumosAPI.Entities;
 using InsumosAPI.Middleware.Exceptions.BadRequest;
 using InsumosAPI.Middleware.Exceptions.NotFound;
 using InsumosAPI.Middleware.Models;

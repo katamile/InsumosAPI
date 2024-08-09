@@ -25,8 +25,10 @@ namespace InsumosAPI.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UsuarioLoginRequest loginRequest)
         {
-            if (loginRequest == null)
-                return BadRequest("Datos de inicio de sesión inválidos.");
+            if (!string.IsNullOrEmpty(loginRequest.Username) || !string.IsNullOrEmpty(loginRequest.Username))
+            {
+                throw new InvalidFieldException("No se ha ingresado usuario y/o contraseña.");
+            }
 
             var jwtRequest = await _loginService.LoginUsuario(loginRequest);
             return Ok(jwtRequest);

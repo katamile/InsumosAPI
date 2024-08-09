@@ -62,7 +62,7 @@ namespace InsumosAPI.Services.UsuarioService
                 Contraseña = usuario.Contraseña,
                 Correo = usuario.Correo,
                 Rol = usuario.Rol
-            };
+            } ?? throw new NotFoundException("Usuario no encontrado."); 
 
             return usuarioDTO;
         }

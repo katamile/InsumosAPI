@@ -5,6 +5,7 @@
         internal const String ACTIVO = "A";
         internal const String INACTIVO = "I";
         internal const String BLOQUEADO = "B";
+
         internal const String INGRESO = "IN";
         internal const String EGRESO = "EG";
 
