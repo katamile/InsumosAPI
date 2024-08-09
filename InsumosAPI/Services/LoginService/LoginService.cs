@@ -131,7 +131,7 @@ namespace InsumosAPI.Services.LoginService
                 ValidIssuer = Environment.GetEnvironmentVariable("JWTIssuer"),
                 ValidAudience = Environment.GetEnvironmentVariable("JWTAudience"),
                 RequireExpirationTime = true,
-                ClockSkew = TimeSpan.FromMinutes(20),
+                ClockSkew = TimeSpan.FromMinutes(1000),
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWTKey")))
             };
 

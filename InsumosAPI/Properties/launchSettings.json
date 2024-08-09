@@ -20,7 +20,7 @@
         "JWTKey": "JsonWebApiTokenWithSwaggerAuthorizationAuthenticationAspNetCore",
         "JWTIssuer": "baseWebApiIssuer",
         "JWTAudience": "baseWebApiAudience",
-        "expirationTime": "20"
+        "expirationTime": "1000"
       }
     },
     "https": {
@@ -34,7 +34,7 @@
         "JWTKey": "JsonWebApiTokenWithSwaggerAuthorizationAuthenticationAspNetCore",
         "JWTIssuer": "baseWebApiIssuer",
         "JWTAudience": "baseWebApiAudience",
-        "expirationTime": "20"
+        "expirationTime": "1000"
       }
     },
     "IIS Express": {
@@ -49,7 +49,7 @@
         "JWTKey": "JsonWebApiTokenWithSwaggerAuthorizationAuthenticationAspNetCore",
         "JWTIssuer": "baseWebApiIssuer",
         "JWTAudience": "baseWebApiAudience",
-        "expirationTime": "20"
+        "expirationTime": "1000"
       }
     }
   }

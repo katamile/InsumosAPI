@@ -14,15 +14,11 @@ namespace InsumosAPI.Entities
         [Required(ErrorMessage = "El producto no puede ser nulo.")]
         public long IdProducto { get; set; }
 
-        [ForeignKey(nameof(IdProducto))]
-        public Producto Producto { get; set; } = null!;
-
         [RegularExpression("^(IN|EG)\\d*$", ErrorMessage = $"El campo Tipo Movimiento debe ser {Globales.INGRESO} o {Globales.EGRESO}")]
         public string TipoMovimiento { get; set; } = null!;
 
         [Range(0, int.MaxValue, ErrorMessage = "El Stock del Producto debe ser un número entero positivo.")]
         public int StockProducto { get; set; }
-
 
         [Range(0, int.MaxValue, ErrorMessage = "La Cantidad del movimiento de stock debe ser un número entero positivo.")]
         public int CantidadMovimiento { get; set; }

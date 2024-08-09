@@ -21,9 +21,6 @@ namespace InsumosAPI.Entities
         [ForeignKey(nameof(IdLaboratorio))]
         public Laboratorio Laboratorio { get; set; } = null!;
 
-        [Required(ErrorMessage = "El producto no puede ser nulo.")]
-        public long IdMovimiento { get; set; }
-
         [Range(0, double.MaxValue, ErrorMessage = "El precio de compra debe ser un número positivo.")]
         [Precision(18, 2)]
         public decimal PrecioCompra { get; set; }
@@ -31,5 +28,8 @@ namespace InsumosAPI.Entities
         [Range(0, double.MaxValue, ErrorMessage = "El precio de venta debe ser un número positivo.")]
         [Precision(18, 2)]
         public decimal PrecioVenta { get; set; }
+        public string RutaImg { get; set; } = String.Empty;
+
+        public ICollection<MovimientoInventario>? MovimientosInventario { get; set; }
     }
 }

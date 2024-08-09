@@ -10,9 +10,10 @@ namespace InsumosAPI.DTOs
         public string Nombre { get; set; } = null!;
         public string Descripcion { get; set; } = String.Empty;
         public long IdLaboratorio { get; set; }
-        public string LaboratorioName { get; set; } = null!;
-        public int Stock { get; set; }
+        public string? LaboratorioName { get; set; } = null!;
+        public int? Stock { get; set; }
         public decimal PrecioCompra { get; set; }
         public decimal PrecioVenta { get; set; }
+        public string RutaImg { get; set; } = String.Empty;
     }
 }

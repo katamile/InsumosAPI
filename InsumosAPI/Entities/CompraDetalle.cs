@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace InsumosAPI.Entities
 {
-    public class CompraDetalle
+    public class CompraDetalle : CRUDBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

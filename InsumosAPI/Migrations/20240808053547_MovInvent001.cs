@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace InsumosAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class Correcciones003 : Migration
+    public partial class MovInvent001 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,12 +15,12 @@ namespace InsumosAPI.Migrations
                 name: "Stock",
                 table: "Producto");
 
-            migrationBuilder.AddColumn<long>(
-                name: "IdMovimiento",
+            migrationBuilder.AddColumn<string>(
+                name: "RutaImg",
                 table: "Producto",
-                type: "bigint",
+                type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: 0L);
+                defaultValue: "");
 
             migrationBuilder.AddColumn<string>(
                 name: "RazonSocial",
@@ -39,7 +39,14 @@ namespace InsumosAPI.Migrations
                     Subtotal = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     IvaPor = table.Column<decimal>(type: "decimal(5,2)", precision: 5, scale: 2, nullable: false),
                     Iva = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    Total = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false)
+                    Total = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UsuarioCreacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaModificacion = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UsuarioModificacion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaEliminacion = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UsuarioEliminacion = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -56,6 +63,7 @@ namespace InsumosAPI.Migrations
                     TipoMovimiento = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StockProducto = table.Column<int>(type: "int", nullable: false),
                     CantidadMovimiento = table.Column<int>(type: "int", nullable: false),
+                    ProductoIdProducto = table.Column<long>(type: "bigint", nullable: true),
                     Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UsuarioCreacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -68,11 +76,10 @@ namespace InsumosAPI.Migrations
                 {
                     table.PrimaryKey("PK_MovimientoInventario", x => x.IdMovimiento);
                     table.ForeignKey(
-                        name: "FK_MovimientoInventario_Producto_IdProducto",
-                        column: x => x.IdProducto,
+                        name: "FK_MovimientoInventario_Producto_ProductoIdProducto",
+                        column: x => x.ProductoIdProducto,
                         principalTable: "Producto",
-                        principalColumn: "IdProducto",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdProducto");
                 });
 
             migrationBuilder.CreateTable(
@@ -86,7 +93,14 @@ namespace InsumosAPI.Migrations
                     Cantidad = table.Column<int>(type: "int", nullable: false),
                     PrecioUnitario = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     PrecioTotal = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    CompraIdCompra = table.Column<long>(type: "bigint", nullable: true)
+                    CompraIdCompra = table.Column<long>(type: "bigint", nullable: true),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UsuarioCreacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaModificacion = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UsuarioModificacion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaEliminacion = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UsuarioEliminacion = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -109,77 +123,77 @@ namespace InsumosAPI.Migrations
                 keyColumn: "IdCliente",
                 keyValue: 1L,
                 columns: new[] { "FechaCreacion", "RazonSocial" },
-                values: new object[] { new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(8001), "Natural" });
+                values: new object[] { new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(710), "Natural" });
 
             migrationBuilder.UpdateData(
                 table: "Clientes",
                 keyColumn: "IdCliente",
                 keyValue: 2L,
                 columns: new[] { "FechaCreacion", "RazonSocial" },
-                values: new object[] { new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(8008), "Natural" });
+                values: new object[] { new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(714), "Natural" });
 
             migrationBuilder.UpdateData(
                 table: "Clientes",
                 keyColumn: "IdCliente",
                 keyValue: 3L,
                 columns: new[] { "FechaCreacion", "RazonSocial" },
-                values: new object[] { new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(8015), "Natural" });
+                values: new object[] { new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(718), "Natural" });
 
             migrationBuilder.UpdateData(
                 table: "Laboratorio",
                 keyColumn: "IdLaboratorio",
                 keyValue: 1L,
                 column: "FechaCreacion",
-                value: new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(8090));
+                value: new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(888));
 
             migrationBuilder.UpdateData(
                 table: "Laboratorio",
                 keyColumn: "IdLaboratorio",
                 keyValue: 2L,
                 column: "FechaCreacion",
-                value: new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(8095));
+                value: new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(893));
 
             migrationBuilder.UpdateData(
                 table: "Laboratorio",
                 keyColumn: "IdLaboratorio",
                 keyValue: 3L,
                 column: "FechaCreacion",
-                value: new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(8099));
+                value: new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(896));
 
             migrationBuilder.UpdateData(
                 table: "Proveedor",
                 keyColumn: "IdProveedor",
                 keyValue: 1L,
                 column: "FechaCreacion",
-                value: new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(8166));
+                value: new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(956));
 
             migrationBuilder.UpdateData(
                 table: "Proveedor",
                 keyColumn: "IdProveedor",
                 keyValue: 2L,
                 column: "FechaCreacion",
-                value: new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(8172));
+                value: new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(959));
 
             migrationBuilder.UpdateData(
                 table: "Proveedor",
                 keyColumn: "IdProveedor",
                 keyValue: 3L,
                 column: "FechaCreacion",
-                value: new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(8176));
+                value: new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(962));
 
             migrationBuilder.UpdateData(
                 table: "Usuarios",
                 keyColumn: "IdUsuario",
                 keyValue: 1L,
                 column: "FechaCreacion",
-                value: new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(7581));
+                value: new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(169));
 
             migrationBuilder.UpdateData(
                 table: "Usuarios",
                 keyColumn: "IdUsuario",
                 keyValue: 2L,
                 column: "FechaCreacion",
-                value: new DateTime(2024, 8, 6, 4, 32, 27, 599, DateTimeKind.Utc).AddTicks(7588));
+                value: new DateTime(2024, 8, 8, 5, 35, 46, 46, DateTimeKind.Utc).AddTicks(173));
 
             migrationBuilder.CreateIndex(
                 name: "IX_CompraDetalle_CompraIdCompra",
@@ -192,9 +206,9 @@ namespace InsumosAPI.Migrations
                 column: "IdProducto");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MovimientoInventario_IdProducto",
+                name: "IX_MovimientoInventario_ProductoIdProducto",
                 table: "MovimientoInventario",
-                column: "IdProducto");
+                column: "ProductoIdProducto");
         }
 
         /// <inheritdoc />
@@ -210,7 +224,7 @@ namespace InsumosAPI.Migrations
                 name: "Compra");
 
             migrationBuilder.DropColumn(
-                name: "IdMovimiento",
+                name: "RutaImg",
                 table: "Producto");
 
             migrationBuilder.DropColumn(
