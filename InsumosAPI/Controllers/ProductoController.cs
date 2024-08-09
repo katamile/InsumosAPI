@@ -33,9 +33,9 @@ namespace InsumosAPI.Controllers
         }
 
         [HttpGet("consultaPorNombre")]
-        public async Task<IActionResult> GetByName([FromQuery] string nombre)
+        public async Task<IActionResult> GetByName([FromQuery] string nombre, long idLaboratorio)
         {
-            var producto = await _productoService.GetByNombre(nombre);
+            var producto = await _productoService.GetByNombreYLaboratorio(nombre, idLaboratorio);
             return Ok(producto);
         }
 

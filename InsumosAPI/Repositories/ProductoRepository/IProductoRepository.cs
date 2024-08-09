@@ -12,6 +12,6 @@ namespace InsumosAPI.Repositories.ProductoRepository
         Task<ProductoDTO> GetById(long id);
         Task<Producto> GetByIdAsync(long id);
         Task ModificarProductoAsync(Producto producto);
-        Task<ProductoDTO> ObtenerPorNombreAsync(string nombre);
+        Task<ProductoDTO> ObtenerPorNombreYLaboratorioAsync(string nombre, long idLaboratorio);
     }
 }

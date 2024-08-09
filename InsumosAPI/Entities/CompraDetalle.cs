@@ -10,14 +10,18 @@ namespace InsumosAPI.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long IdCompraDetalle { get; set; }
 
-        [Required(ErrorMessage = "La venta no puede ser nula.")]
+
+        [Required(ErrorMessage = "La compra no puede ser nula.")]
         public long IdCompra { get; set; }
+
+        [ForeignKey(nameof(IdCompra))]
+        public virtual Compra Compra { get; set; } = null!;
 
         [Required(ErrorMessage = "El producto no puede ser nulo.")]
         public long IdProducto { get; set; }
 
         [ForeignKey(nameof(IdProducto))]
-        public Producto Producto { get; set; } = null!;
+        public Producto? Producto { get; set; } = null!;
 
         [Range(0, int.MaxValue, ErrorMessage = "La cantidad debe ser un número positivo.")]
         public int Cantidad { get; set; }
@@ -29,5 +33,6 @@ namespace InsumosAPI.Entities
         [Range(0, double.MaxValue, ErrorMessage = "El precio total debe ser un número positivo.")]
         [Precision(18, 2)]
         public decimal PrecioTotal { get; set; }
+
     }
 }

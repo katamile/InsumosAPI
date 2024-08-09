@@ -86,7 +86,7 @@ namespace InsumosAPI.Migrations
                             Correo = "ana.rodriguez@example.com",
                             Direccion = "Av. Quito 123, Quito, Ecuador",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3764),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(823),
                             Identificacion = "0998765432",
                             NombreCompleto = "Ana María Rodríguez",
                             RazonSocial = "Natural",
@@ -99,7 +99,7 @@ namespace InsumosAPI.Migrations
                             Correo = "carlos.fernandez@example.com",
                             Direccion = "Calle Guayaquil 456, Guayaquil, Ecuador",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3767),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(826),
                             Identificacion = "0987654321",
                             NombreCompleto = "Carlos Fernández",
                             RazonSocial = "Natural",
@@ -112,7 +112,7 @@ namespace InsumosAPI.Migrations
                             Correo = "lucia.morales@example.com",
                             Direccion = "Av. Cuenca 789, Cuenca, Ecuador",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3769),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(830),
                             Identificacion = "0976543210",
                             NombreCompleto = "Lucía Morales",
                             RazonSocial = "Natural",
@@ -192,9 +192,6 @@ namespace InsumosAPI.Migrations
                     b.Property<int>("Cantidad")
                         .HasColumnType("int");
 
-                    b.Property<long?>("CompraIdCompra")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -234,7 +231,7 @@ namespace InsumosAPI.Migrations
 
                     b.HasKey("IdCompraDetalle");
 
-                    b.HasIndex("CompraIdCompra");
+                    b.HasIndex("IdCompra");
 
                     b.HasIndex("IdProducto");
 
@@ -293,7 +290,7 @@ namespace InsumosAPI.Migrations
                             IdLaboratorio = 1L,
                             Direccion = "123 Calle Principal, Ciudad, País",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3794),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(864),
                             Nombre = "Génerico",
                             Telefono = "+1-800-123-4567",
                             UsuarioCreacion = "SYSTEM"
@@ -303,7 +300,7 @@ namespace InsumosAPI.Migrations
                             IdLaboratorio = 2L,
                             Direccion = "456 Avenida Secundaria, Ciudad, País",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3797),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(867),
                             Nombre = "MK",
                             Telefono = "+1-800-987-6543",
                             UsuarioCreacion = "SYSTEM"
@@ -313,7 +310,7 @@ namespace InsumosAPI.Migrations
                             IdLaboratorio = 3L,
                             Direccion = "789 Calle Terciaria, Ciudad, País",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3799),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(870),
                             Nombre = "Genfar",
                             Telefono = "+1-800-555-1212",
                             UsuarioCreacion = "SYSTEM"
@@ -484,7 +481,7 @@ namespace InsumosAPI.Migrations
                             IdProveedor = 1L,
                             Direccion = "Av. Central 123, Ciudad",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3831),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(911),
                             Nombre = "Farmacéutica ABC",
                             Telefono = "0918456789",
                             UsuarioCreacion = "SYSTEM"
@@ -494,7 +491,7 @@ namespace InsumosAPI.Migrations
                             IdProveedor = 2L,
                             Direccion = "Calle de la Salud 456, Ciudad",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3833),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(913),
                             Nombre = "Distribuidora XYZ",
                             Telefono = "0978986756",
                             UsuarioCreacion = "SYSTEM"
@@ -504,7 +501,7 @@ namespace InsumosAPI.Migrations
                             IdProveedor = 3L,
                             Direccion = "Paseo de los Medicamentos 789, Ciudad",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3836),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(916),
                             Nombre = "Laboratorios DEF",
                             Telefono = "0912345678",
                             UsuarioCreacion = "SYSTEM"
@@ -587,7 +584,7 @@ namespace InsumosAPI.Migrations
                             Apellidos = "Farmacia",
                             Contraseña = "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3542),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(586),
                             Identificacion = "0999999999",
                             IntentosFallidos = 0,
                             Nombres = "Admin",
@@ -601,7 +598,7 @@ namespace InsumosAPI.Migrations
                             Apellidos = "Orellana Maridueña",
                             Contraseña = "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 9, 7, 44, 14, 465, DateTimeKind.Utc).AddTicks(3545),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(601),
                             Identificacion = "0955416755",
                             IntentosFallidos = 0,
                             Nombres = "Milena Saray",
@@ -724,14 +721,11 @@ namespace InsumosAPI.Migrations
                     b.Property<string>("UsuarioModificacion")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("VentaIdVenta")
-                        .HasColumnType("bigint");
-
                     b.HasKey("IdVentaDetalle");
 
                     b.HasIndex("IdProducto");
 
-                    b.HasIndex("VentaIdVenta");
+                    b.HasIndex("IdVenta");
 
                     b.ToTable("VentaDetalle", (string)null);
                 });
@@ -749,15 +743,19 @@ namespace InsumosAPI.Migrations
 
             modelBuilder.Entity("InsumosAPI.Entities.CompraDetalle", b =>
                 {
-                    b.HasOne("InsumosAPI.Entities.Compra", null)
+                    b.HasOne("InsumosAPI.Entities.Compra", "Compra")
                         .WithMany("CompraDetalle")
-                        .HasForeignKey("CompraIdCompra");
+                        .HasForeignKey("IdCompra")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("InsumosAPI.Entities.Producto", "Producto")
                         .WithMany()
                         .HasForeignKey("IdProducto")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Compra");
 
                     b.Navigation("Producto");
                 });
@@ -811,11 +809,15 @@ namespace InsumosAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("InsumosAPI.Entities.Venta", null)
+                    b.HasOne("InsumosAPI.Entities.Venta", "Venta")
                         .WithMany("VentaDetalles")
-                        .HasForeignKey("VentaIdVenta");
+                        .HasForeignKey("IdVenta")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Producto");
+
+                    b.Navigation("Venta");
                 });
 
             modelBuilder.Entity("InsumosAPI.Entities.Compra", b =>

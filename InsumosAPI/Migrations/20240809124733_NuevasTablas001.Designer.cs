@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InsumosAPI.Migrations
 {
     [DbContext(typeof(InsumosDBContext))]
-    [Migration("20240801071549_NuevasTablas")]
-    partial class NuevasTablas
+    [Migration("20240809124733_NuevasTablas001")]
+    partial class NuevasTablas001
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,6 +61,10 @@ namespace InsumosAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RazonSocial")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
@@ -85,9 +89,10 @@ namespace InsumosAPI.Migrations
                             Correo = "ana.rodriguez@example.com",
                             Direccion = "Av. Quito 123, Quito, Ecuador",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1677),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(823),
                             Identificacion = "0998765432",
                             NombreCompleto = "Ana María Rodríguez",
+                            RazonSocial = "Natural",
                             Telefono = "+593987654321",
                             UsuarioCreacion = "SYSTEM"
                         },
@@ -97,9 +102,10 @@ namespace InsumosAPI.Migrations
                             Correo = "carlos.fernandez@example.com",
                             Direccion = "Calle Guayaquil 456, Guayaquil, Ecuador",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1680),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(826),
                             Identificacion = "0987654321",
                             NombreCompleto = "Carlos Fernández",
+                            RazonSocial = "Natural",
                             Telefono = "+593987654322",
                             UsuarioCreacion = "SYSTEM"
                         },
@@ -109,12 +115,130 @@ namespace InsumosAPI.Migrations
                             Correo = "lucia.morales@example.com",
                             Direccion = "Av. Cuenca 789, Cuenca, Ecuador",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1683),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(830),
                             Identificacion = "0976543210",
                             NombreCompleto = "Lucía Morales",
+                            RazonSocial = "Natural",
                             Telefono = "+593987654323",
                             UsuarioCreacion = "SYSTEM"
                         });
+                });
+
+            modelBuilder.Entity("InsumosAPI.Entities.Compra", b =>
+                {
+                    b.Property<long>("IdCompra")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("IdCompra"));
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaCompra")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaEliminacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaModificacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("IdProveedor")
+                        .HasColumnType("bigint");
+
+                    b.Property<decimal>("Iva")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("IvaPor")
+                        .HasPrecision(5, 2)
+                        .HasColumnType("decimal(5,2)");
+
+                    b.Property<decimal>("Subtotal")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Total")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UsuarioCreacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsuarioEliminacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsuarioModificacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdCompra");
+
+                    b.HasIndex("IdProveedor");
+
+                    b.ToTable("Compra", (string)null);
+                });
+
+            modelBuilder.Entity("InsumosAPI.Entities.CompraDetalle", b =>
+                {
+                    b.Property<long>("IdCompraDetalle")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("IdCompraDetalle"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaEliminacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaModificacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("IdCompra")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("IdProducto")
+                        .HasColumnType("bigint");
+
+                    b.Property<decimal>("PrecioTotal")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PrecioUnitario")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UsuarioCreacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsuarioEliminacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsuarioModificacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdCompraDetalle");
+
+                    b.HasIndex("IdCompra");
+
+                    b.HasIndex("IdProducto");
+
+                    b.ToTable("CompraDetalle", (string)null);
                 });
 
             modelBuilder.Entity("InsumosAPI.Entities.Laboratorio", b =>
@@ -167,27 +291,84 @@ namespace InsumosAPI.Migrations
                         new
                         {
                             IdLaboratorio = 1L,
+                            Direccion = "123 Calle Principal, Ciudad, País",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1717),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(864),
                             Nombre = "Génerico",
+                            Telefono = "+1-800-123-4567",
                             UsuarioCreacion = "SYSTEM"
                         },
                         new
                         {
                             IdLaboratorio = 2L,
+                            Direccion = "456 Avenida Secundaria, Ciudad, País",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1719),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(867),
                             Nombre = "MK",
+                            Telefono = "+1-800-987-6543",
                             UsuarioCreacion = "SYSTEM"
                         },
                         new
                         {
                             IdLaboratorio = 3L,
+                            Direccion = "789 Calle Terciaria, Ciudad, País",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1721),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(870),
                             Nombre = "Genfar",
+                            Telefono = "+1-800-555-1212",
                             UsuarioCreacion = "SYSTEM"
                         });
+                });
+
+            modelBuilder.Entity("InsumosAPI.Entities.MovimientoInventario", b =>
+                {
+                    b.Property<long>("IdMovimiento")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("IdMovimiento"));
+
+                    b.Property<int>("CantidadMovimiento")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaEliminacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaModificacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("IdProducto")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("StockProducto")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TipoMovimiento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsuarioCreacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsuarioEliminacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsuarioModificacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdMovimiento");
+
+                    b.HasIndex("IdProducto");
+
+                    b.ToTable("MovimientoInventario", (string)null);
                 });
 
             modelBuilder.Entity("InsumosAPI.Entities.Producto", b =>
@@ -230,8 +411,9 @@ namespace InsumosAPI.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("Stock")
-                        .HasColumnType("int");
+                    b.Property<string>("RutaImg")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UsuarioCreacion")
                         .IsRequired()
@@ -302,7 +484,7 @@ namespace InsumosAPI.Migrations
                             IdProveedor = 1L,
                             Direccion = "Av. Central 123, Ciudad",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1751),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(911),
                             Nombre = "Farmacéutica ABC",
                             Telefono = "0918456789",
                             UsuarioCreacion = "SYSTEM"
@@ -312,7 +494,7 @@ namespace InsumosAPI.Migrations
                             IdProveedor = 2L,
                             Direccion = "Calle de la Salud 456, Ciudad",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1754),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(913),
                             Nombre = "Distribuidora XYZ",
                             Telefono = "0978986756",
                             UsuarioCreacion = "SYSTEM"
@@ -322,7 +504,7 @@ namespace InsumosAPI.Migrations
                             IdProveedor = 3L,
                             Direccion = "Paseo de los Medicamentos 789, Ciudad",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1756),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(916),
                             Nombre = "Laboratorios DEF",
                             Telefono = "0912345678",
                             UsuarioCreacion = "SYSTEM"
@@ -403,10 +585,11 @@ namespace InsumosAPI.Migrations
                         {
                             IdUsuario = 1L,
                             Apellidos = "Farmacia",
-                            Contraseña = "12345",
+                            Contraseña = "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1436),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(586),
                             Identificacion = "0999999999",
+                            IntentosFallidos = 0,
                             Nombres = "Admin",
                             Rol = "Admin",
                             Username = "admin",
@@ -416,10 +599,11 @@ namespace InsumosAPI.Migrations
                         {
                             IdUsuario = 2L,
                             Apellidos = "Orellana Maridueña",
-                            Contraseña = "12345",
+                            Contraseña = "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS",
                             Estado = "A",
-                            FechaCreacion = new DateTime(2024, 8, 1, 7, 15, 49, 91, DateTimeKind.Utc).AddTicks(1440),
+                            FechaCreacion = new DateTime(2024, 8, 9, 7, 47, 32, 929, DateTimeKind.Local).AddTicks(601),
                             Identificacion = "0955416755",
+                            IntentosFallidos = 0,
                             Nombres = "Milena Saray",
                             Rol = "Vendedor",
                             Username = "morella",
@@ -540,16 +724,54 @@ namespace InsumosAPI.Migrations
                     b.Property<string>("UsuarioModificacion")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("VentaIdVenta")
-                        .HasColumnType("bigint");
-
                     b.HasKey("IdVentaDetalle");
 
                     b.HasIndex("IdProducto");
 
-                    b.HasIndex("VentaIdVenta");
+                    b.HasIndex("IdVenta");
 
                     b.ToTable("VentaDetalle", (string)null);
+                });
+
+            modelBuilder.Entity("InsumosAPI.Entities.Compra", b =>
+                {
+                    b.HasOne("InsumosAPI.Entities.Proveedor", "Proveedor")
+                        .WithMany()
+                        .HasForeignKey("IdProveedor")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Proveedor");
+                });
+
+            modelBuilder.Entity("InsumosAPI.Entities.CompraDetalle", b =>
+                {
+                    b.HasOne("InsumosAPI.Entities.Compra", "Compra")
+                        .WithMany("CompraDetalle")
+                        .HasForeignKey("IdCompra")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("InsumosAPI.Entities.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("IdProducto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Compra");
+
+                    b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("InsumosAPI.Entities.MovimientoInventario", b =>
+                {
+                    b.HasOne("InsumosAPI.Entities.Producto", "Producto")
+                        .WithMany("MovimientosInventario")
+                        .HasForeignKey("IdProducto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Producto");
                 });
 
             modelBuilder.Entity("InsumosAPI.Entities.Producto", b =>
@@ -590,11 +812,25 @@ namespace InsumosAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("InsumosAPI.Entities.Venta", null)
+                    b.HasOne("InsumosAPI.Entities.Venta", "Venta")
                         .WithMany("VentaDetalles")
-                        .HasForeignKey("VentaIdVenta");
+                        .HasForeignKey("IdVenta")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Producto");
+
+                    b.Navigation("Venta");
+                });
+
+            modelBuilder.Entity("InsumosAPI.Entities.Compra", b =>
+                {
+                    b.Navigation("CompraDetalle");
+                });
+
+            modelBuilder.Entity("InsumosAPI.Entities.Producto", b =>
+                {
+                    b.Navigation("MovimientosInventario");
                 });
 
             modelBuilder.Entity("InsumosAPI.Entities.Venta", b =>

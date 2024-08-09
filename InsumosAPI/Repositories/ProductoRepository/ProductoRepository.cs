@@ -71,11 +71,11 @@ namespace InsumosAPI.Repositories.ProductoRepository
                                              ?? throw new NotFoundException("No se encuentra el producto.");
         }
 
-        public async Task<ProductoDTO> ObtenerPorNombreAsync(string nombre)
+        public async Task<ProductoDTO> ObtenerPorNombreYLaboratorioAsync(string nombre, long idLaboratorio)
         {
             var producto = await _contexto.Productos
-                .Where(p => p.Nombre.Contains(nombre)
-                        && p.Estado == Globales.ACTIVO)
+                .Where(p => p.Nombre == nombre && p.IdLaboratorio == idLaboratorio
+                        && p.Estado == Globales.ACTIVO )
                 .Include(p => p.MovimientosInventario)
                 .Select(p => new ProductoDTO
                 {
@@ -89,8 +89,7 @@ namespace InsumosAPI.Repositories.ProductoRepository
                     Stock = p.MovimientosInventario
                                 .Select(m => m.StockProducto).FirstOrDefault()
                 })
-                .FirstOrDefaultAsync()
-                ?? throw new NotFoundException("No se encuentra el producto.");
+                .FirstOrDefaultAsync();
 
             return producto;
         }

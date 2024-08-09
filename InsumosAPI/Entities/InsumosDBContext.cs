@@ -97,7 +97,7 @@ namespace InsumosAPI.Entities
                     Contraseña = "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS",
                     Rol = "Admin",
                     Estado = "A",
-                    FechaCreacion =DateTime.UtcNow,
+                    FechaCreacion =DateTime.Now,
                     UsuarioCreacion="SYSTEM"
                 },
 
@@ -111,7 +111,7 @@ namespace InsumosAPI.Entities
                     Contraseña = "$2a$11$KFUx83w07FBBg1TOZ01t9.JIPIKlxIZ55O8cnK7l/rFiY/DuUlXHS",
                     Rol = "Vendedor",
                     Estado = "A",
-                    FechaCreacion = DateTime.UtcNow,
+                    FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM"
                 }
             );
@@ -127,7 +127,7 @@ namespace InsumosAPI.Entities
                     Correo = "ana.rodriguez@example.com",
                     RazonSocial="Natural",
                     Estado = "A",
-                    FechaCreacion = DateTime.UtcNow,
+                    FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM"
                 },
                 new Cliente
@@ -140,7 +140,7 @@ namespace InsumosAPI.Entities
                     Correo = "carlos.fernandez@example.com",
                     RazonSocial = "Natural",
                     Estado = "A",
-                    FechaCreacion = DateTime.UtcNow,
+                    FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM"
                 },
                 new Cliente
@@ -153,7 +153,7 @@ namespace InsumosAPI.Entities
                     Correo = "lucia.morales@example.com",
                     RazonSocial = "Natural",
                     Estado = "A",
-                    FechaCreacion = DateTime.UtcNow,
+                    FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM"
                 }
             );
@@ -164,7 +164,7 @@ namespace InsumosAPI.Entities
                     IdLaboratorio = 1,
                     Nombre = "Génerico",
                     Estado = "A",
-                    FechaCreacion = DateTime.UtcNow,
+                    FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM",
                     Telefono = "+1-800-123-4567",
                     Direccion = "123 Calle Principal, Ciudad, País"
@@ -175,7 +175,7 @@ namespace InsumosAPI.Entities
                     IdLaboratorio = 2,
                     Nombre = "MK",
                     Estado = "A",
-                    FechaCreacion = DateTime.UtcNow,
+                    FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM",
                     Telefono = "+1-800-987-6543",
                     Direccion = "456 Avenida Secundaria, Ciudad, País"
@@ -186,7 +186,7 @@ namespace InsumosAPI.Entities
                     IdLaboratorio = 3,
                     Nombre = "Genfar",
                     Estado = "A",
-                    FechaCreacion = DateTime.UtcNow,
+                    FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM",
                     Telefono = "+1-800-555-1212",
                     Direccion = "789 Calle Terciaria, Ciudad, País"
@@ -201,7 +201,7 @@ namespace InsumosAPI.Entities
                     Telefono = "0918456789",
                     Direccion = "Av. Central 123, Ciudad",
                     Estado = "A",
-                    FechaCreacion = DateTime.UtcNow,
+                    FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM"
                 },
                 new Proveedor
@@ -211,7 +211,7 @@ namespace InsumosAPI.Entities
                     Telefono = "0978986756",
                     Direccion = "Calle de la Salud 456, Ciudad",
                     Estado = "A",
-                    FechaCreacion = DateTime.UtcNow,
+                    FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM"
                 },
                 new Proveedor
@@ -221,7 +221,7 @@ namespace InsumosAPI.Entities
                     Telefono = "0912345678",
                     Direccion = "Paseo de los Medicamentos 789, Ciudad",
                     Estado = "A",
-                    FechaCreacion = DateTime.UtcNow,
+                    FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM"
                 }
              );

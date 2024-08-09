@@ -20,6 +20,10 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using InsumosAPI.Repositories.ProductoRepository;
 using InsumosAPI.Services.ProductoService;
+using InsumosAPI.Repositories.MovimientoInventarioRepository;
+using InsumosAPI.Services.MovimientoInventarioService;
+using InsumosAPI.Repositories.ComprasRepository;
+using InsumosAPI.Services.ComprasService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,6 +58,12 @@ builder.Services.AddScoped<IProveedorService, ProveedorService>();
 
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<IProductoService, ProductoService>();
+
+builder.Services.AddScoped<IMovimientoInventarioRepository, MovimientoInventarioRepository>();
+builder.Services.AddScoped<IMovimientoInventarioService, MovimientoInventarioService>();
+
+builder.Services.AddScoped<IComprasRepository, ComprasRepository>();
+builder.Services.AddScoped<IComprasService, ComprasService>();
 
 builder.Services.AddScoped<ILoginService, LoginService>();
 

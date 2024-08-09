@@ -14,7 +14,7 @@ namespace InsumosAPI.Entities
         public long IdProveedor { get; set; }
 
         [ForeignKey(nameof(IdProveedor))]
-        public Proveedor Proveedor { get; set; } = null!;
+        public Proveedor? Proveedor { get; set; } = null!;
 
         [Required(ErrorMessage = "La fecha de venta no puede ser nula.")]
         public DateTime FechaCompra { get; set; }

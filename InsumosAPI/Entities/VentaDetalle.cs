@@ -13,6 +13,9 @@ namespace InsumosAPI.Entities
         [Required(ErrorMessage = "La venta no puede ser nula.")]
         public long IdVenta { get; set; }
 
+        [ForeignKey(nameof(IdVenta))]
+        public virtual Venta Venta { get; set; } = null!;
+
         [Required(ErrorMessage = "El producto no puede ser nulo.")]
         public long IdProducto { get; set; }
 

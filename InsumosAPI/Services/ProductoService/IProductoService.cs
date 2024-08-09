@@ -9,7 +9,7 @@ namespace InsumosAPI.Services.ProductoService
         Task<MessageInfoDTO> EliminarProductoAsync(long id);
         Task<List<ProductoDTO>> GetAll();
         Task<ProductoDTO> GetById(long id);
-        Task<ProductoDTO> GetByNombre(string nombre);
+        Task<ProductoDTO> GetByNombreYLaboratorio(string nombre, long idLaboratorio);
         Task<MessageInfoDTO> ModificarProductoAsync(ProductoDTO request);
     }
 }

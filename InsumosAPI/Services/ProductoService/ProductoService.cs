@@ -59,9 +59,9 @@ namespace InsumosAPI.Services.ProductoService
             };
         }
 
-        public async Task<ProductoDTO> GetByNombre(string nombre)
+        public async Task<ProductoDTO> GetByNombreYLaboratorio(string nombre, long idLaboratorio)
         {
-            var producto = await _productoRepository.ObtenerPorNombreAsync(nombre);
+            var producto = await _productoRepository.ObtenerPorNombreYLaboratorioAsync(nombre, idLaboratorio);
 
             if (producto == null)
             {
@@ -90,8 +90,12 @@ namespace InsumosAPI.Services.ProductoService
                         ?? throw new NotFoundException("El laboratorio ingresado no existe");
 
                 //Validar Laboratorio Existente
-                var validarName = await _productoRepository.ObtenerPorNombreAsync(request.Nombre)
-                        ?? throw new NotFoundException("El nombre ingresado ya existe.");
+                var validarName = await _productoRepository.ObtenerPorNombreYLaboratorioAsync(request.Nombre, request.IdLaboratorio);
+
+                if (validarName != null) 
+                { 
+                    throw new NotFoundException("El nombre ingresado ya existe.");
+                }
 
                 // Crear el nuevo producto
                 var producto = new ProductoDTO
