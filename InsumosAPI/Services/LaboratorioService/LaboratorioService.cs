@@ -22,7 +22,7 @@ namespace InsumosAPI.Services.LaboratorioService
             var laboratorios = await _laboratorioRepository.GetAll();
             return laboratorios.Select(l => new LaboratorioDTO
             {
-                IdLaboratorio = l.IdLaboratorio,
+                Id = l.IdLaboratorio,
                 Nombre = l.Nombre,
                 Telefono = l.Telefono,
                 Direccion = l.Direccion
@@ -35,7 +35,7 @@ namespace InsumosAPI.Services.LaboratorioService
 
             return new LaboratorioDTO
             {
-                IdLaboratorio = laboratorio.IdLaboratorio,
+                Id = laboratorio.IdLaboratorio,
                 Nombre = laboratorio.Nombre,
                 Telefono = laboratorio.Telefono,
                 Direccion = laboratorio.Direccion
@@ -53,7 +53,7 @@ namespace InsumosAPI.Services.LaboratorioService
 
             return new LaboratorioDTO
             {
-                IdLaboratorio = laboratorio.IdLaboratorio,
+                Id = laboratorio.IdLaboratorio,
                 Nombre = laboratorio.Nombre,
                 Telefono = laboratorio.Telefono,
                 Direccion = laboratorio.Direccion
@@ -97,7 +97,7 @@ namespace InsumosAPI.Services.LaboratorioService
 
         public async Task<MessageInfoDTO> ModificarLaboratorioAsync(LaboratorioDTO request)
         {
-            var laboratorio = await _laboratorioRepository.GetById(request.IdLaboratorio);
+            var laboratorio = await _laboratorioRepository.GetById(request.Id);
             if (laboratorio == null)
             {
                 return new MessageInfoDTO

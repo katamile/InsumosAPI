@@ -4,7 +4,7 @@ namespace InsumosAPI.DTOs
 {
     public class CompraDTO
     {
-        public long IdCompra { get; set; }
+        public long Id { get; set; }
         public long IdProveedor { get; set; }
         public string Proveedor { get; set; } = string.Empty;
         public DateTime FechaCompra { get; set; }

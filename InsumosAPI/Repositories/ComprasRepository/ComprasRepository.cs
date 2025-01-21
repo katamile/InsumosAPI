@@ -54,7 +54,7 @@ namespace InsumosAPI.Repositories.ComprasRepository
                     Total = compraDTO.Total,
                     CompraDetalle = compraDTO.CompraDetalle.Select(detalle => new CompraDetalle
                     {
-                        IdCompraDetalle = detalle.IdCompraDetalle,
+                        IdCompraDetalle = detalle.Id,
                         IdProducto = detalle.IdProducto,
                         Cantidad = detalle.Cantidad,
                         PrecioUnitario = detalle.PrecioUnitario,

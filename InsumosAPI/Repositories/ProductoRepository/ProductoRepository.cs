@@ -29,8 +29,9 @@ namespace InsumosAPI.Repositories.ProductoRepository
                 .Include(p => p.MovimientosInventario)
                  .Select(p => new ProductoDTO
                  {
-                     IdProducto = p.IdProducto,
+                     Id = p.IdProducto,
                      Nombre = p.Nombre,
+                     Descripcion = p.Descripcion,
                      IdLaboratorio = p.IdLaboratorio,
                      LaboratorioName =  p.Laboratorio.Nombre,
                      PrecioCompra = p.PrecioCompra,
@@ -49,8 +50,9 @@ namespace InsumosAPI.Repositories.ProductoRepository
                 .Include(p => p.MovimientosInventario)
                 .Select(p => new ProductoDTO
                 {
-                    IdProducto = p.IdProducto,
+                    Id = p.IdProducto,
                     Nombre = p.Nombre,
+                    Descripcion = p.Descripcion,
                     IdLaboratorio = p.IdLaboratorio,
                     LaboratorioName = p.Laboratorio.Nombre,
                     PrecioCompra = p.PrecioCompra,
@@ -79,8 +81,9 @@ namespace InsumosAPI.Repositories.ProductoRepository
                 .Include(p => p.MovimientosInventario)
                 .Select(p => new ProductoDTO
                 {
-                    IdProducto = p.IdProducto,
+                    Id = p.IdProducto,
                     Nombre = p.Nombre,
+                    Descripcion = p.Descripcion,
                     IdLaboratorio = p.IdLaboratorio,
                     LaboratorioName = p.Laboratorio.Nombre,
                     PrecioCompra = p.PrecioCompra,

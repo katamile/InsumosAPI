@@ -6,7 +6,7 @@ namespace InsumosAPI.DTOs
 {
     public class ProductoDTO
     {
-        public long IdProducto { get; set; }
+        public long Id { get; set; }
         public string Nombre { get; set; } = null!;
         public string Descripcion { get; set; } = String.Empty;
         public long IdLaboratorio { get; set; }

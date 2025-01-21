@@ -24,10 +24,27 @@ namespace InsumosAPI.Services.UsuarioService
             _usuarioRepository = usuarioRepository;
         }
 
-        public async Task<List<Usuario>> GetAll()
+        public async Task<List<UsuarioDTO>> GetAll()
         {
-            return await _usuarioRepository.GetAll();
+            // Obtiene todos los usuarios del repositorio
+            var usuarios = await _usuarioRepository.GetAll();
+
+            // Convierte la lista de usuarios a una lista de UsuarioDTO
+            var usuariosDTO = usuarios.Select(usuario => new UsuarioDTO
+            {
+                Id = usuario.IdUsuario,
+                Identificacion = usuario.Identificacion,
+                Nombres = usuario.Nombres,
+                Apellidos = usuario.Apellidos,
+                Username = usuario.Username,
+                Contraseña = usuario.Contraseña,
+                Correo = usuario.Correo,
+                Rol = usuario.Rol
+            }).ToList();
+
+            return usuariosDTO;
         }
+
 
         public async Task<UsuarioDTO> GetById(long id)
         {
@@ -35,7 +52,7 @@ namespace InsumosAPI.Services.UsuarioService
 
             var usuarioDTO = new UsuarioDTO
             {
-                IdUsuario = usuario.IdUsuario,
+                Id = usuario.IdUsuario,
                 Identificacion = usuario.Identificacion,
                 Nombres = usuario.Nombres,
                 Apellidos = usuario.Apellidos,
@@ -52,9 +69,14 @@ namespace InsumosAPI.Services.UsuarioService
         {
             var usuario = await _usuarioRepository.ObtenerPorUsernameAsync(username);
 
+            if (usuario == null)
+            {
+                throw new NotFoundException("Usuario no encontrado.");
+            };
+
             var usuarioDTO = new UsuarioDTO
             {
-                IdUsuario = usuario.IdUsuario,
+                Id = usuario.IdUsuario,
                 Identificacion = usuario.Identificacion,
                 Nombres = usuario.Nombres,
                 Apellidos = usuario.Apellidos,
@@ -62,7 +84,7 @@ namespace InsumosAPI.Services.UsuarioService
                 Contraseña = usuario.Contraseña,
                 Correo = usuario.Correo,
                 Rol = usuario.Rol
-            } ?? throw new NotFoundException("Usuario no encontrado."); 
+            };
 
             return usuarioDTO;
         }
@@ -134,7 +156,7 @@ namespace InsumosAPI.Services.UsuarioService
 
         public async Task<MessageInfoDTO> ModificarUsuarioAsync(UsuarioDTO request)
         {
-            var usuario = await _usuarioRepository.GetById(request.IdUsuario);
+            var usuario = await _usuarioRepository.GetById(request.Id);
             if (usuario == null)
             {
                 return new MessageInfoDTO

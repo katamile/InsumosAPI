@@ -6,7 +6,7 @@ namespace InsumosAPI.DTOs
 {
     public class VentaDetalleDTO
     {
-        public long IdVentaDetalle { get; set; }
+        public long Id { get; set; }
         public long IdVenta { get; set; }
         public long IdProducto { get; set; }
         public string? Producto { get; set; }

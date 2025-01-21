@@ -28,7 +28,7 @@ namespace InsumosAPI.Services.MovimientoInventarioService
             var movimientos = await _movimientoInventarioRepository.GetAll();
             return movimientos.Select(m => new MovimientoInventarioDTO
             {
-                IdMovimiento = m.IdMovimiento,
+                Id = m.Id,
                 TipoMovimiento = m.TipoMovimiento,
                 IdProducto = m.IdProducto,
                 Producto = m.Producto,

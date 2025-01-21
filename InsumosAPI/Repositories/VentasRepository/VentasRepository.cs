@@ -54,7 +54,7 @@ namespace InsumosAPI.Repositories.VentasRepository
                     Total = ventaDTO.Total,
                     VentaDetalles = ventaDTO.VentaDetalles.Select(detalle => new VentaDetalle
                     {
-                        IdVentaDetalle = detalle.IdVentaDetalle,
+                        IdVentaDetalle = detalle.Id,
                         IdProducto = detalle.IdProducto,
                         Cantidad = detalle.Cantidad,
                         PrecioUnitario = detalle.PrecioUnitario,

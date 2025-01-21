@@ -36,7 +36,7 @@ namespace InsumosAPI.Services.ComprasService
             var compras = await _comprasRepository.GetAll();
             return compras.Select(c => new CompraDTO
             {
-                IdCompra = c.IdCompra,
+                Id = c.IdCompra,
                 IdProveedor = c.IdProveedor,
                 Proveedor = c.Proveedor.Nombre,
                 FechaCompra = c.FechaCompra,
@@ -46,7 +46,7 @@ namespace InsumosAPI.Services.ComprasService
                 Total = c.Total,
                 CompraDetalle = c.CompraDetalle.Select(detalle => new CompraDetalleDTO
                 {
-                    IdCompraDetalle = detalle.IdCompraDetalle,
+                    Id = detalle.IdCompraDetalle,
                     IdProducto = detalle.IdProducto,
                     Producto = detalle.Producto?.Nombre ?? "",
                     Cantidad = detalle.Cantidad,
@@ -67,7 +67,7 @@ namespace InsumosAPI.Services.ComprasService
 
             return new CompraDTO
             {
-                IdCompra = compra.IdCompra,
+                Id = compra.IdCompra,
                 IdProveedor = compra.IdProveedor,
                 Proveedor = compra.Proveedor.Nombre,
                 FechaCompra = compra.FechaCompra,
@@ -77,7 +77,7 @@ namespace InsumosAPI.Services.ComprasService
                 Total = compra.Total,
                 CompraDetalle = compra.CompraDetalle.Select(detalle => new CompraDetalleDTO
                 {
-                    IdCompraDetalle = detalle.IdCompraDetalle,
+                    Id = detalle.IdCompraDetalle,
                     IdProducto = detalle.IdProducto,
                     Cantidad = detalle.Cantidad,
                     PrecioUnitario = detalle.PrecioUnitario,
@@ -109,7 +109,7 @@ namespace InsumosAPI.Services.ComprasService
                     Total = subtotal + iva,
                     CompraDetalle = detallesValidacionResult.CompraDetalleDTOs.Select(detalle => new CompraDetalleDTO
                     {
-                        IdCompraDetalle = detalle.IdCompraDetalle,
+                        Id = detalle.Id,
                         IdProducto = detalle.IdProducto,
                         Cantidad = detalle.Cantidad,
                         PrecioUnitario = detalle.PrecioUnitario,

@@ -24,7 +24,7 @@ namespace InsumosAPI.Services.ClienteService
             var clientes = await _clienteRepository.GetAll();
             return clientes.Select(c => new ClienteDTO
             {
-                IdCliente = c.IdCliente,
+                Id = c.IdCliente,
                 Identificacion = c.Identificacion,
                 NombreCompleto = c.NombreCompleto,
                 RazonSocial = c.RazonSocial,
@@ -40,7 +40,7 @@ namespace InsumosAPI.Services.ClienteService
 
             return new ClienteDTO
             {
-                IdCliente = cliente.IdCliente,
+                Id = cliente.IdCliente,
                 Identificacion = cliente.Identificacion,
                 NombreCompleto = cliente.NombreCompleto,
                 RazonSocial = cliente.RazonSocial,
@@ -61,7 +61,7 @@ namespace InsumosAPI.Services.ClienteService
 
             return new ClienteDTO
             {
-                IdCliente = cliente.IdCliente,
+                Id = cliente.IdCliente,
                 Identificacion = cliente.Identificacion,
                 NombreCompleto = cliente.NombreCompleto,
                 RazonSocial = cliente.RazonSocial,
@@ -111,7 +111,7 @@ namespace InsumosAPI.Services.ClienteService
 
         public async Task<MessageInfoDTO> ModificarClienteAsync(ClienteDTO request)
         {
-            var cliente = await _clienteRepository.GetById(request.IdCliente);
+            var cliente = await _clienteRepository.GetById(request.Id);
             if (cliente == null)
             {
                 return new MessageInfoDTO

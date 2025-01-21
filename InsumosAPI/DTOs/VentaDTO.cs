@@ -6,7 +6,7 @@ namespace InsumosAPI.DTOs
 {
     public class VentaDTO
     {
-        public long IdVenta { get; set; }
+        public long Id { get; set; }
         public DateTime FechaVenta { get; set; }
         public long IdCliente { get; set; }
         public string Cliente { get; set; } = string.Empty;

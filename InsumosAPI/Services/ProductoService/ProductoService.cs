@@ -26,8 +26,9 @@ namespace InsumosAPI.Services.ProductoService
             var productos = await _productoRepository.GetAll();
             return productos.Select(p => new ProductoDTO
             {
-                IdProducto = p.IdProducto,
+                Id = p.Id,
                 Nombre = p.Nombre,
+                Descripcion = p.Descripcion,
                 IdLaboratorio = p.IdLaboratorio,
                 LaboratorioName = p.LaboratorioName,
                 PrecioCompra = p.PrecioCompra,
@@ -48,8 +49,9 @@ namespace InsumosAPI.Services.ProductoService
 
             return new ProductoDTO
             {
-                IdProducto = producto.IdProducto,
+                Id = producto.Id,
                 Nombre = producto.Nombre,
+                Descripcion = producto.Descripcion,
                 IdLaboratorio = producto.IdLaboratorio,
                 LaboratorioName = producto.LaboratorioName,
                 PrecioCompra = producto.PrecioCompra,
@@ -70,8 +72,9 @@ namespace InsumosAPI.Services.ProductoService
 
             return new ProductoDTO
             {
-                IdProducto = producto.IdProducto,
+                Id = producto.Id,
                 Nombre = producto.Nombre,
+                Descripcion = producto.Descripcion,
                 IdLaboratorio = producto.IdLaboratorio,
                 LaboratorioName = producto.LaboratorioName,
                 PrecioCompra = producto.PrecioCompra,
@@ -129,7 +132,7 @@ namespace InsumosAPI.Services.ProductoService
         }
         public async Task<MessageInfoDTO> ModificarProductoAsync(ProductoDTO request)
         {
-            var producto = await _productoRepository.GetByIdAsync(request.IdProducto);
+            var producto = await _productoRepository.GetByIdAsync(request.Id);
             if (producto == null)
             {
                 return new MessageInfoDTO

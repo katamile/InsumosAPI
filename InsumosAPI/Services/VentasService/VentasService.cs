@@ -34,7 +34,7 @@ namespace InsumosAPI.Services.VentasService
             var ventas = await _ventasRepository.GetAll();
             return ventas.Select(c => new VentaDTO
             {
-                IdVenta = c.IdVenta,
+                Id = c.IdVenta,
                 IdCliente = c.IdCliente,
                 Cliente = c.Cliente.NombreCompleto,
                 FechaVenta = c.FechaVenta,
@@ -44,7 +44,7 @@ namespace InsumosAPI.Services.VentasService
                 Total = c.Total,
                 VentaDetalles = c.VentaDetalles.Select(detalle => new VentaDetalleDTO
                 {
-                    IdVentaDetalle = detalle.IdVentaDetalle,
+                    Id = detalle.IdVentaDetalle,
                     IdProducto = detalle.IdProducto,
                     Producto = detalle.Producto?.Nombre ?? "",
                     Cantidad = detalle.Cantidad,
@@ -65,7 +65,7 @@ namespace InsumosAPI.Services.VentasService
 
             return new VentaDTO
             {
-                IdVenta = venta.IdVenta,
+                Id = venta.IdVenta,
                 IdCliente = venta.IdCliente,
                 Cliente = venta.Cliente.NombreCompleto,
                 FechaVenta = venta.FechaVenta,
@@ -75,7 +75,7 @@ namespace InsumosAPI.Services.VentasService
                 Total = venta.Total,
                 VentaDetalles = venta.VentaDetalles.Select(detalle => new VentaDetalleDTO
                 {
-                    IdVentaDetalle = detalle.IdVentaDetalle,
+                    Id = detalle.IdVentaDetalle,
                     IdProducto = detalle.IdProducto,
                     Cantidad = detalle.Cantidad,
                     PrecioUnitario = detalle.PrecioUnitario,
@@ -108,7 +108,7 @@ namespace InsumosAPI.Services.VentasService
                     Total = subtotal + iva,
                     VentaDetalles = detallesValidacionResult.VentaDetalleDTOs.Select(detalle => new VentaDetalleDTO
                     {
-                        IdVentaDetalle = detalle.IdVentaDetalle,
+                        Id = detalle.Id,
                         IdProducto = detalle.IdProducto,
                         Cantidad = detalle.Cantidad,
                         PrecioUnitario = detalle.PrecioUnitario,

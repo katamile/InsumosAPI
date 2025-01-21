@@ -29,7 +29,7 @@ namespace InsumosAPI.Repositories.MovimientoInventarioRepository
                 .Include(c=>c.Producto)
                 .Select(c=>new MovimientoInventarioDTO
                 {
-                    IdMovimiento = c.IdMovimiento,
+                    Id = c.IdMovimiento,
                     TipoMovimiento = c.TipoMovimiento,
                     IdProducto=c.IdProducto,
                     Producto = c.Producto.Nombre,
@@ -48,7 +48,7 @@ namespace InsumosAPI.Repositories.MovimientoInventarioRepository
                 .Include(c => c.Producto)
                 .Select(c => new MovimientoInventarioDTO
                 {
-                    IdMovimiento = c.IdMovimiento,
+                    Id = c.IdMovimiento,
                     TipoMovimiento = c.TipoMovimiento,
                     IdProducto = c.IdProducto,
                     Producto = c.Producto.Nombre,
@@ -67,14 +67,14 @@ namespace InsumosAPI.Repositories.MovimientoInventarioRepository
                 .Include(c => c.Producto)
                 .Select(c => new MovimientoInventarioDTO
                 {
-                    IdMovimiento = c.IdMovimiento,
+                    Id = c.IdMovimiento,
                     TipoMovimiento = c.TipoMovimiento,
                     IdProducto = c.IdProducto,
                     Producto = c.Producto.Nombre,
                     StockProducto = c.StockProducto,
                     CantidadMovimiento = c.CantidadMovimiento
                 })
-                .OrderByDescending(c => c.IdMovimiento)
+                .OrderByDescending(c => c.Id)
                 .FirstOrDefaultAsync();
 
             return movInve;

@@ -3,7 +3,7 @@ namespace InsumosAPI.DTOs
 {
     public class UsuarioDTO
     {
-        public long IdUsuario { get; set; }
+        public long Id { get; set; }
         public string? Identificacion { get; set; } = null!;
         public string? Nombres { get; set; } = null!;
         public string? Apellidos { get; set; } = null!;

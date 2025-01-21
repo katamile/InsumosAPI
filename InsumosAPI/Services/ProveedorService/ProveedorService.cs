@@ -23,7 +23,7 @@ namespace InsumosAPI.Services.ProveedorService
             var proveedores = await _proveedorRepository.GetAll();
             return proveedores.Select(p => new ProveedorDTO
             {
-                IdProveedor = p.IdProveedor,
+                Id = p.IdProveedor,
                 Nombre = p.Nombre,
                 Telefono = p.Telefono,
                 Direccion = p.Direccion
@@ -36,7 +36,7 @@ namespace InsumosAPI.Services.ProveedorService
 
             return new ProveedorDTO
             {
-                IdProveedor = proveedor.IdProveedor,
+                Id = proveedor.IdProveedor,
                 Nombre = proveedor.Nombre,
                 Telefono = proveedor.Telefono,
                 Direccion = proveedor.Direccion
@@ -54,7 +54,7 @@ namespace InsumosAPI.Services.ProveedorService
 
             return new ProveedorDTO
             {
-                IdProveedor = proveedor.IdProveedor,
+                Id = proveedor.IdProveedor,
                 Nombre = proveedor.Nombre,
                 Telefono = proveedor.Telefono,
                 Direccion = proveedor.Direccion
@@ -98,7 +98,7 @@ namespace InsumosAPI.Services.ProveedorService
 
         public async Task<MessageInfoDTO> ModificarProveedorAsync(ProveedorDTO request)
         {
-            var proveedor = await _proveedorRepository.GetById(request.IdProveedor);
+            var proveedor = await _proveedorRepository.GetById(request.Id);
             if (proveedor == null)
             {
                 return new MessageInfoDTO
