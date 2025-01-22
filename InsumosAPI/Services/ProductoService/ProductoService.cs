@@ -3,9 +3,8 @@ using InsumosAPI.Entities;
 using InsumosAPI.Middleware.Exceptions.BadRequest;
 using InsumosAPI.Middleware.Exceptions.NotFound;
 using InsumosAPI.Middleware.Models;
-using InsumosAPI.Repositories.LaboratorioRepository;
 using InsumosAPI.Repositories.ProductoRepository;
-using InsumosAPI.Services.LaboratorioService;
+using InsumosAPI.Services.MarcaService;
 using System.Net;
 
 namespace InsumosAPI.Services.ProductoService

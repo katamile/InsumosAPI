@@ -53,7 +53,7 @@ namespace InsumosAPI.Entities
                 .HasKey(u => u.IdUsuario);
 
             modelBuilder.Entity<Marca>()
-                .ToTable("Laboratorio")
+                .ToTable("Marca")
                 .HasKey(u => u.IdMarca);
 
             modelBuilder.Entity<Producto>()

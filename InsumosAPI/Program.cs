@@ -1,12 +1,10 @@
 using InsumosAPI.Entities;
 using InsumosAPI.Middleware;
 using InsumosAPI.Repositories.ClienteRepository;
-using InsumosAPI.Repositories.LaboratorioRepository;
 using InsumosAPI.Repositories.LoginRepository;
 using InsumosAPI.Repositories.UsuarioRepository;
 using InsumosAPI.Repositories.ProveedorRepository;
 using InsumosAPI.Services.ClienteService;
-using InsumosAPI.Services.LaboratorioService;
 using InsumosAPI.Services.LoginService;
 using InsumosAPI.Services.UsuarioService;
 using InsumosAPI.Services.ProveedorService;
@@ -26,6 +24,8 @@ using InsumosAPI.Repositories.ComprasRepository;
 using InsumosAPI.Services.ComprasService;
 using InsumosAPI.Repositories.VentasRepository;
 using InsumosAPI.Services.VentasService;
+using InsumosAPI.Repositories.MarcaRepository;
+using InsumosAPI.Services.MarcaService;
 
 var builder = WebApplication.CreateBuilder(args);
 
