@@ -19,7 +19,7 @@ namespace InsumosAPI.Entities
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Producto> Productos { get; set; }
-        public DbSet<Laboratorio> Laboratorios { get; set; }
+        public DbSet<Marca> Marcas { get; set; }
         public DbSet<Proveedor> Proveedores { get; set; }
         public DbSet<Venta> Ventas { get; set; }
         public DbSet<VentaDetalle> VentaDetalles { get; set; }
@@ -52,9 +52,9 @@ namespace InsumosAPI.Entities
                 .ToTable("Usuarios")
                 .HasKey(u => u.IdUsuario);
 
-            modelBuilder.Entity<Laboratorio>()
+            modelBuilder.Entity<Marca>()
                 .ToTable("Laboratorio")
-                .HasKey(u => u.IdLaboratorio);
+                .HasKey(u => u.IdMarca);
 
             modelBuilder.Entity<Producto>()
                 .ToTable("Producto")
@@ -158,38 +158,38 @@ namespace InsumosAPI.Entities
                 }
             );
 
-            modelBuilder.Entity<Laboratorio>().HasData(
-                new Laboratorio
+            modelBuilder.Entity<Marca>().HasData(
+                new Marca
                 {
-                    IdLaboratorio = 1,
-                    Nombre = "Génerico",
+                    IdMarca = 1,
+                    Nombre = "PRONACA",
                     Estado = "A",
                     FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM",
-                    Telefono = "+1-800-123-4567",
-                    Direccion = "123 Calle Principal, Ciudad, País"
+                    Telefono = "+59323976400",
+                    Direccion = "De los Naranjos N44-15, Quito, Ecuador"
                 },
 
-                new Laboratorio
+                new Marca
                 {
-                    IdLaboratorio = 2,
-                    Nombre = "MK",
+                    IdMarca = 2,
+                    Nombre = "La Europea",
                     Estado = "A",
                     FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM",
-                    Telefono = "+1-800-987-6543",
-                    Direccion = "456 Avenida Secundaria, Ciudad, País"
+                    Telefono = "072860770 ext. 3322 / 3021",
+                    Direccion = "Av. Pampite, Edificio AMC Business Center 2do. Piso, frente al YOO de Cumbayá, Quito, Ecuador"
                 },
 
-                new Laboratorio
+                new Marca
                 {
-                    IdLaboratorio = 3,
-                    Nombre = "Genfar",
+                    IdMarca = 3,
+                    Nombre = "El Rancho",
                     Estado = "A",
                     FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM",
-                    Telefono = "+1-800-555-1212",
-                    Direccion = "789 Calle Terciaria, Ciudad, País"
+                    Telefono = "+593996086316",
+                    Direccion = "Pedro Pablo Gómez y Los Ríos matriz, Guayaquil, Ecuador"
                 }
             );
 
@@ -197,9 +197,9 @@ namespace InsumosAPI.Entities
                 new Proveedor
                 {
                     IdProveedor = 1,
-                    Nombre = "Farmacéutica ABC",
-                    Telefono = "0918456789",
-                    Direccion = "Av. Central 123, Ciudad",
+                    Nombre = "La Vienesa",
+                    Telefono = "+59343810320",
+                    Direccion = "Km 10 vía Durán Yaguachi, Duran, Ecuador",
                     Estado = "A",
                     FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM"
@@ -207,9 +207,9 @@ namespace InsumosAPI.Entities
                 new Proveedor
                 {
                     IdProveedor = 2,
-                    Nombre = "Distribuidora XYZ",
+                    Nombre = "Avícola Fernandez",
                     Telefono = "0978986756",
-                    Direccion = "Calle de la Salud 456, Ciudad",
+                    Direccion = "Garzota, mz.149, v.9, Guayaquil, Guayas 593, EC",
                     Estado = "A",
                     FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM"
@@ -217,9 +217,9 @@ namespace InsumosAPI.Entities
                 new Proveedor
                 {
                     IdProveedor= 3,
-                    Nombre = "Laboratorios DEF",
-                    Telefono = "0912345678",
-                    Direccion = "Paseo de los Medicamentos 789, Ciudad",
+                    Nombre = "Supermercado de Carnes La Española",
+                    Telefono = "0998519628",
+                    Direccion = "Cdla. La Puntilla, hasta Ciudad Celeste, Guayaquil",
                     Estado = "A",
                     FechaCreacion = DateTime.Now,
                     UsuarioCreacion = "SYSTEM"

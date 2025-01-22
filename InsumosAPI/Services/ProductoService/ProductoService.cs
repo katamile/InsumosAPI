@@ -13,9 +13,9 @@ namespace InsumosAPI.Services.ProductoService
     public class ProductoService : IProductoService
     {
         private readonly IProductoRepository _productoRepository;
-        private readonly ILaboratorioService _laboratorioService;
+        private readonly IMarcaService _laboratorioService;
 
-        public ProductoService(IProductoRepository productoRepository, ILaboratorioService laboratorioService)
+        public ProductoService(IProductoRepository productoRepository, IMarcaService laboratorioService)
         {
             _productoRepository = productoRepository;
             _laboratorioService = laboratorioService;

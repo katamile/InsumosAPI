@@ -19,7 +19,7 @@ namespace InsumosAPI.Entities
         public long IdLaboratorio { get; set; }
 
         [ForeignKey(nameof(IdLaboratorio))]
-        public Laboratorio Laboratorio { get; set; } = null!;
+        public Marca Laboratorio { get; set; } = null!;
 
         [Range(0, double.MaxValue, ErrorMessage = "El precio de compra debe ser un número positivo.")]
         [Precision(18, 2)]

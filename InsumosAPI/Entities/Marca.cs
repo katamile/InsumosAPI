@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace InsumosAPI.Entities
 {
-    public class Laboratorio : CRUDBase
+    public class Marca : CRUDBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IdLaboratorio { get; set; }
+        public long IdMarca { get; set; }
 
         [Required(ErrorMessage = "El nombre no puede ser nulo.")]
         public string Nombre { get; set; } = null!;
